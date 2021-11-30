@@ -1,0 +1,36 @@
+@import "./variables";
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap");
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  font-size: 62.5%;
+  cursor: none;
+  overflow: hidden;
+  max-width: 100vw;
+  position: relative;
+}
+a {
+  cursor: none;
+}
+body {
+  background-color: $backgroundColor;
+  font-family: "Poppins", sans-serif;
+  color: white;
+  font-size: 1.6rem;
+}
+
+.hide {
+  display: none;
+}
+.show {
+  display: block;
+}
+.inToView {
+  transform: translateX(0) !important;
+}

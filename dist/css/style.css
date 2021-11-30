@@ -1,0 +1,511 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap");
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  cursor: none;
+  overflow: hidden;
+  max-width: 100vw;
+  position: relative;
+}
+
+a {
+  cursor: none;
+}
+
+body {
+  background-color: black;
+  font-family: "Poppins", sans-serif;
+  color: white;
+  font-size: 1.6rem;
+}
+
+.hide {
+  display: none;
+}
+
+.show {
+  display: block;
+}
+
+.inToView {
+  transform: translateX(0) !important;
+}
+
+@-webkit-keyframes cursorClickAnim {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(2);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0;
+  }
+}
+
+@keyframes cursorClickAnim {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(2);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0;
+  }
+}
+@-webkit-keyframes realCursorClickAnim {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.8);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes realCursorClickAnim {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.8);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@media screen and (max-width: 900px) {
+  html {
+    font-size: 55%;
+  }
+
+  .nav-bar {
+    padding: 15rem;
+  }
+
+  .link:hover {
+    transform: scale(1.06);
+  }
+  .link::before {
+    background-color: white;
+  }
+  .link::after {
+    background-color: black;
+  }
+
+  .link-list {
+    background-color: white;
+    position: fixed;
+    max-width: 330px;
+    min-height: 100vh;
+    z-index: 50;
+    top: 0;
+    left: 0;
+    flex-direction: column;
+    display: block;
+    transform: translateX(-120%);
+    transition: transform 0.5s linear;
+    z-index: 3;
+  }
+
+  .whiteMenu {
+    background-color: #66fcf1;
+    position: fixed;
+    max-width: 330px;
+    min-width: 320px;
+    min-height: 100vh;
+    z-index: 50;
+    top: 0;
+    left: 0;
+    flex-direction: column;
+    display: block;
+    transform: translateX(-120%);
+    transition: transform 0.5s linear;
+    transition-delay: 0.5s;
+    z-index: -1;
+  }
+
+  .links {
+    display: block;
+    color: black;
+  }
+
+  .logo {
+    margin-left: -70%;
+  }
+
+  .burger {
+    z-index: 80;
+    margin-right: 9%;
+  }
+  .burger span {
+    background-color: white;
+    border-radius: 10px;
+    margin: 0.7rem 1rem;
+    display: block;
+    padding: 0.2rem 1.8rem;
+    width: 0.8rem;
+    transition: 0.4s cubic-bezier(0.68, -0.6, 0.32, 1.6);
+    transition-property: transform, opacity;
+  }
+  .burger .span1 {
+    padding: 0.2rem 1rem;
+    width: 1rem;
+  }
+  .burger .span3 {
+    padding: 0.2rem 1rem;
+    width: 1.1rem;
+  }
+  .burger .open {
+    background-color: black;
+  }
+  .burger .span1.open {
+    transform: rotate(45deg) scaleX(2) translate(5.5px);
+    transform-origin: center;
+  }
+  .burger .span2.open {
+    opacity: 0;
+  }
+  .burger .span3.open {
+    transform: rotate(-45deg) scaleX(2) translate(5.5px);
+  }
+
+  .hero-whole-wrapper .circle {
+    left: -30%;
+    top: 20%;
+  }
+}
+@media screen and (max-width: 450px) {
+  html {
+    font-size: 40%;
+  }
+
+  .nav-bar {
+    padding: 5rem;
+  }
+}
+.cursor-circle {
+  z-index: 90;
+  width: 2.4rem;
+  height: 2.4rem;
+  border: 0.1rem solid #66fcf1;
+  border-radius: 50%;
+  position: absolute;
+  opacity: 1;
+  transition-duration: 150ms;
+  transition-timing-function: ease-out;
+  /* animation: cursorClickAnim 0.5s infinite; */
+}
+
+.cursor {
+  z-index: 99;
+  height: 0.6rem;
+  width: 0.6rem;
+  background-color: #66fcf1;
+  border-radius: 50%;
+  position: absolute;
+  mix-blend-mode: difference;
+  transition: all 0.5s ease;
+  transition-property: background, transform;
+}
+
+.shrink {
+  -webkit-animation: realCursorClickAnim 0.5s infinite;
+          animation: realCursorClickAnim 0.5s infinite;
+  border: 0.1rem solid #66fcf1;
+}
+
+.expand {
+  -webkit-animation: cursorClickAnim 0.5s infinite;
+          animation: cursorClickAnim 0.5s infinite;
+  border: 0.1rem solid #66fcf1;
+}
+
+.cursor-click {
+  z-index: 90;
+  width: 2.4rem;
+  height: 2.4rem;
+  border: 0.1rem solid #66fcf1;
+  border-radius: 50%;
+  position: absolute;
+  opacity: 0.3;
+  transition-duration: 150ms;
+  transition-timing-function: ease-out;
+}
+
+.cursorGrow {
+  transform: scale(17);
+}
+
+.cursorGrowSmall {
+  transform: scale(3);
+}
+
+.logo {
+  height: 8rem;
+  transition: transform 0.5s linear;
+}
+.logo:hover {
+  transform: scale(1.09);
+}
+.logo:active {
+  transform: translateY(-10px) scale(0.9);
+}
+
+.Hero-wrapper {
+  padding: 2.2rem 3rem;
+}
+
+.whiteMenu {
+  display: none;
+}
+
+.mob-logo {
+  display: none;
+}
+
+.Hero-wrapper {
+  display: flex;
+  padding-right: 2rem;
+}
+
+.nav-bar {
+  height: 10rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  width: 100%;
+}
+
+.link-list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  list-style: none;
+  width: 100%;
+  justify-content: space-around;
+}
+.link-list .navSet {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+.link-list .link {
+  margin-left: 3rem;
+  text-decoration: none;
+  color: white;
+  transition: transform 0.5s ease;
+  position: relative;
+  letter-spacing: 0.1rem;
+}
+.link-list .link:hover {
+  color: #66fcf1;
+}
+.link-list .link::before {
+  content: "";
+  position: absolute;
+  bottom: -6px;
+  left: 0;
+  height: 0.2rem;
+  background-color: white;
+  width: 0;
+  transition: all 0.5s linear;
+  border-radius: 1rem;
+}
+.link-list .link::after {
+  content: "";
+  position: absolute;
+  bottom: -6px;
+  left: 0;
+  height: 0.2rem;
+  background-color: #66fcf1;
+  width: 0;
+  transition: all 0.5s linear;
+  transition-delay: 0.3s;
+  border-radius: 1rem;
+}
+.link-list .link:hover::before {
+  width: 100%;
+}
+.link-list .link:hover::after {
+  width: 100%;
+}
+
+.navSet {
+  width: 200px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.links {
+  padding-top: 1rem;
+  display: inline-block;
+}
+
+@media screen and (max-width: 900px) {
+  .whiteMenu {
+    display: block;
+  }
+
+  .mob-logo {
+    margin: 2rem;
+    display: block;
+    height: 8rem;
+    transition: transform 0.5s linear;
+  }
+  .mob-logo:hover {
+    transform: scale(1.09);
+  }
+  .mob-logo:active {
+    transform: translateY(-10px) scale(0.9);
+  }
+
+  .links {
+    flex-direction: column;
+    margin-bottom: 2rem;
+  }
+  .links .link {
+    color: black;
+    font-weight: 700;
+  }
+  .links .link:hover {
+    color: black;
+  }
+  .links .link::before {
+    background-color: white;
+  }
+  .links .link::after {
+    background-color: black;
+  }
+
+  .link-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .link-list .firstSet {
+    margin-top: -20rem;
+  }
+
+  .link-list .navSet {
+    display: flex;
+    flex-direction: column;
+    font-size: 3rem;
+  }
+
+  .logo {
+    position: absolute;
+    top: 20;
+    left: 20;
+  }
+
+  .nav-bar {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    width: 100%;
+    padding: 2rem;
+  }
+
+  .logo {
+    display: none;
+  }
+}
+.mainHead {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 70vh;
+  font-family: "Playfair Display", serif;
+  letter-spacing: 3px;
+  font-size: 3rem;
+  text-align: center;
+  margin-top: -2.5rem;
+}
+
+.circle {
+  min-height: 70rem;
+  min-width: 70rem;
+  position: absolute;
+  top: 0;
+  left: -20%;
+  opacity: 0.2;
+  border-radius: 50%;
+  border: 1px solid #66fcf1;
+  z-index: -1;
+}
+
+.introp {
+  margin-top: 2rem;
+  font-family: "Poppins", sans-serif;
+  font-size: 1.6rem;
+  color: #808080;
+}
+
+.mainHeadEl {
+  background-color: black;
+  overflow: hidden;
+}
+
+.mainHeadEl span {
+  display: inline-block;
+  transform: translateY(100%);
+}
+
+.firstLayer {
+  min-height: 100vh;
+  min-width: 100vw;
+  background-color: #080808;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 90;
+  border-top: 0.1rem solid #66fcf1;
+}
+
+.boxHead {
+  padding: 2rem;
+}
+
+.firstLayer {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.firstLayer p {
+  margin-top: 3.5rem;
+  font-size: 2rem;
+  text-transform: uppercase;
+  color: #808080;
+}
+
+.signature {
+  width: 50%;
+  margin-top: -2rem;
+}
+
+.textCircle {
+  position: absolute;
+  bottom: -20%;
+  right: -4%;
+  height: 20rem;
+}/*# sourceMappingURL=style.css.map */

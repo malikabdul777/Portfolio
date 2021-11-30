@@ -1,0 +1,78 @@
+.mainHead {
+  @include flexCenter(column);
+  height: 70vh;
+  font-family: "Playfair Display", serif;
+  letter-spacing: 3px;
+  font-size: 3rem;
+  text-align: center;
+  margin-top: -2.5rem;
+}
+.circle {
+  min-height: 70rem;
+  min-width: 70rem;
+  // background-color: white;
+  position: absolute;
+  top: 0;
+  left: -20%;
+  opacity: 0.2;
+  border-radius: 50%;
+  border: 1px solid $color-primary;
+  z-index: -1;
+}
+.introp {
+  margin-top: 2rem;
+  font-family: "Poppins", sans-serif;
+  font-size: 1.6rem;
+  color: $text-secondary;
+}
+// .hero-whole-wrapper {
+// }
+// .mainHeadEl:hover ~ .cursor {
+//   transform: scale(17);
+// }
+// .mainHeadEl {
+//   display: block;
+// }
+.mainHeadEl {
+  background-color: black;
+  overflow: hidden;
+}
+.mainHeadEl span {
+  display: inline-block;
+  transform: translateY(100%);
+}
+.firstLayer {
+  min-height: 100vh;
+  min-width: 100vw;
+  background-color: rgb(8, 8, 8);
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 90;
+  border-top: 0.1rem solid $color-primary;
+}
+.boxHead {
+  padding: 2rem;
+}
+// first layer
+.firstLayer {
+  height: 100vh;
+  width: 100vw;
+  @include flexCenter(column);
+  p {
+    margin-top: 3.5rem;
+    font-size: 2rem;
+    text-transform: uppercase;
+    color: $text-secondary;
+  }
+}
+.signature {
+  width: 50%;
+  margin-top: -2rem;
+}
+.textCircle {
+  position: absolute;
+  bottom: -20%;
+  right: -4%;
+  height: 20rem;
+}

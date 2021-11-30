@@ -1,0 +1,21 @@
+// $backgroundColor: rgb(27, 27, 27);
+$backgroundColor: black;
+$color-primary: #66fcf1;
+$text-color: white;
+$text-secondary: #808080;
+$cursorColor: #66fcf1;
+
+$fontWeight: (
+  "regulare": 400,
+  "meduim": 500,
+  "bold": 700,
+);
+@function weight($weight-name) {
+  @return map-get($fontWeight, $weight-name);
+}
+@mixin flexCenter($dir) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: $dir;
+}

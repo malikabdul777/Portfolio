@@ -1,0 +1,56 @@
+@import "./variables";
+//Cursor
+
+.cursor-circle {
+  z-index: 90;
+  width: 2.4rem;
+  height: 2.4rem;
+  border: 0.1rem solid $cursorColor;
+  border-radius: 50%;
+  position: absolute;
+  opacity: 1;
+  transition-duration: 150ms;
+  transition-timing-function: ease-out;
+  /* animation: cursorClickAnim 0.5s infinite; */
+}
+.cursor {
+  z-index: 99;
+  height: 0.6rem;
+  width: 0.6rem;
+  background-color: $cursorColor;
+  border-radius: 50%;
+  position: absolute;
+  mix-blend-mode: difference;
+  transition: all 0.5s ease;
+  transition-property: background, transform;
+  // backdrop-filter: grayscale();
+}
+.shrink {
+  animation: realCursorClickAnim 0.5s infinite;
+  border: 0.1rem solid $cursorColor;
+}
+.expand {
+  animation: cursorClickAnim 0.5s infinite;
+  border: 0.1rem solid $cursorColor;
+}
+.cursor-click {
+  z-index: 90;
+  width: 2.4rem;
+  height: 2.4rem;
+  border: 0.1rem solid $cursorColor;
+  border-radius: 50%;
+  position: absolute;
+  opacity: 0.3;
+  transition-duration: 150ms;
+  transition-timing-function: ease-out;
+}
+// .whiteCursor {
+//   background-color: #fff;
+// }
+
+.cursorGrow {
+  transform: scale(17);
+}
+.cursorGrowSmall {
+  transform: scale(3);
+}
