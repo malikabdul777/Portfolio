@@ -167,6 +167,34 @@
       margin-top: -3rem;
     }
   }
+  .textCircle {
+    position: absolute;
+    bottom: -10%;
+    right: 0;
+    max-height: 25rem;
+  }
+  .boxHead {
+    margin-top: -1.5rem;
+  }
+  .aboutMe {
+    .myImg {
+      height: 60rem;
+    }
+  }
+  .cont-aboutMe {
+    width: 50%;
+    h2 {
+      font-size: 2.4rem;
+      margin-bottom: 3rem;
+    }
+    p {
+      font-size: 2rem;
+    }
+    .myImg {
+      width: 80%;
+      object-fit: contain;
+    }
+  }
 }
 // @media screen and (max-width: 400px) {
 //   html {

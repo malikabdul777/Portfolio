@@ -264,6 +264,37 @@ body {
   .aboutMe .Contimg1 {
     margin-top: -3rem;
   }
+
+  .textCircle {
+    position: absolute;
+    bottom: -10%;
+    right: 0;
+    max-height: 25rem;
+  }
+
+  .boxHead {
+    margin-top: -1.5rem;
+  }
+
+  .aboutMe .myImg {
+    height: 60rem;
+  }
+
+  .cont-aboutMe {
+    width: 50%;
+  }
+  .cont-aboutMe h2 {
+    font-size: 2.4rem;
+    margin-bottom: 3rem;
+  }
+  .cont-aboutMe p {
+    font-size: 2rem;
+  }
+  .cont-aboutMe .myImg {
+    width: 80%;
+    -o-object-fit: contain;
+       object-fit: contain;
+  }
 }
 .cursor-circle {
   z-index: 90;
