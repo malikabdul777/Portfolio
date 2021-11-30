@@ -272,8 +272,8 @@ body {
 
   .textCircle {
     position: absolute;
-    bottom: -20%;
-    right: 10;
+    bottom: -25%;
+    right: 10%;
     min-height: 38rem;
     max-height: 40rem;
   }
@@ -286,7 +286,7 @@ body {
     height: 60rem;
   }
   .aboutMe .gtAbout {
-    top: 25%;
+    top: 5%;
   }
 
   .cont-aboutMe {
