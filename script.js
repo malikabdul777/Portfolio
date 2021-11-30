@@ -106,23 +106,25 @@ revelaHead.forEach((el) => {
 
 let t1 = gsap.timeline();
 
-t1.from(".signature", {
-  y: "-100%",
-  opacity: 0,
-  delay: 0.3,
-  duration: 0.5,
-});
-t1.from(".signatureDesig", {
-  // y: "100%",
-  opacity: 0,
-  duration: 0.8,
-});
-t1.to(".firstLayer", {
-  y: "100%",
-  duration: 1,
-  delay: 0.8,
-  display: "none",
-});
+/////////////////////////////////////
+
+// t1.from(".signature", {
+//   y: "-100%",
+//   opacity: 0,
+//   delay: 0.3,
+//   duration: 0.5,
+// });
+// t1.from(".signatureDesig", {
+//   // y: "100%",
+//   opacity: 0,
+//   duration: 0.8,
+// });
+// t1.to(".firstLayer", {
+//   y: "100%",
+//   duration: 1,
+//   delay: 0.8,
+//   display: "none",
+// });
 // t1.from(
 //   ".nav-bar",
 //   {

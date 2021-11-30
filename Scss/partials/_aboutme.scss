@@ -1,0 +1,28 @@
+.aboutMe {
+  width: 100%;
+  margin-top: 12rem;
+  min-height: 90vh;
+  max-height: 100vh;
+  padding: 15rem;
+  position: relative;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.ghostText {
+  position: absolute;
+  top: 20%;
+  left: 10%;
+  font-size: 17rem;
+  opacity: 0.2;
+  color: $text-secondary;
+}
+.cont-aboutMe {
+  width: 50%;
+  h2 {
+    margin-bottom: 3rem;
+  }
+}
+.myImg {
+  height: 40rem;
+}

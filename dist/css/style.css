@@ -10,9 +10,6 @@
 html {
   font-size: 62.5%;
   cursor: none;
-  overflow: hidden;
-  max-width: 100vw;
-  position: relative;
 }
 
 a {
@@ -24,6 +21,9 @@ body {
   font-family: "Poppins", sans-serif;
   color: white;
   font-size: 1.6rem;
+  max-width: 100vw;
+  overflow-x: hidden;
+  min-height: 100vh;
 }
 
 .hide {
@@ -88,6 +88,13 @@ body {
 @media screen and (max-width: 900px) {
   html {
     font-size: 55%;
+    max-width: 100vw;
+    overflow: hidden;
+  }
+
+  body {
+    max-width: 100vw;
+    overflow: hidden;
   }
 
   .nav-bar {
@@ -184,6 +191,13 @@ body {
   .hero-whole-wrapper .circle {
     left: -30%;
     top: 20%;
+  }
+
+  .firstLayer p {
+    font-size: 2.5rem;
+  }
+  .firstLayer .signature {
+    width: 70%;
   }
 }
 @media screen and (max-width: 450px) {
@@ -286,7 +300,8 @@ body {
   justify-content: center;
   align-items: center;
   flex-direction: row;
-  width: 100%;
+  min-width: 100%;
+  max-width: 100%;
 }
 
 .link-list {
@@ -439,13 +454,18 @@ body {
   margin-top: -2.5rem;
 }
 
+.Hero-wrapper {
+  max-width: 100vw;
+  overflow: hidden;
+}
+
 .circle {
   min-height: 70rem;
   min-width: 70rem;
   position: absolute;
   top: 0;
   left: -20%;
-  opacity: 0.2;
+  opacity: 0.6;
   border-radius: 50%;
   border: 1px solid #66fcf1;
   z-index: -1;
@@ -505,7 +525,39 @@ body {
 
 .textCircle {
   position: absolute;
-  bottom: -20%;
+  bottom: -10%;
   right: -4%;
   height: 20rem;
+}
+
+.aboutMe {
+  width: 100%;
+  margin-top: 12rem;
+  min-height: 90vh;
+  max-height: 100vh;
+  padding: 15rem;
+  position: relative;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.ghostText {
+  position: absolute;
+  top: 20%;
+  left: 10%;
+  font-size: 17rem;
+  opacity: 0.2;
+  color: #808080;
+}
+
+.cont-aboutMe {
+  width: 50%;
+}
+.cont-aboutMe h2 {
+  margin-bottom: 3rem;
+}
+
+.myImg {
+  height: 40rem;
 }/*# sourceMappingURL=style.css.map */
