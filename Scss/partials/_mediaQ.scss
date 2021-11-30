@@ -159,6 +159,14 @@
   // .mainHead {
   //   // height: 70vh;
   // }
+  .hero-whole-wrapper {
+    .circle {
+      left: -30%;
+      top: 20%;
+      min-height: 75rem;
+      min-width: 75rem;
+    }
+  }
   .nav-bar {
     padding: 5rem;
   }
@@ -182,7 +190,7 @@
       height: 60rem;
     }
     .gtAbout {
-      top: 35%;
+      top: 45%;
     }
   }
   .cont-aboutMe {

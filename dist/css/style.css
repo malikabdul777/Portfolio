@@ -255,6 +255,13 @@ body {
     font-size: 40%;
   }
 
+  .hero-whole-wrapper .circle {
+    left: -30%;
+    top: 20%;
+    min-height: 75rem;
+    min-width: 75rem;
+  }
+
   .nav-bar {
     padding: 5rem;
   }
@@ -279,7 +286,7 @@ body {
     height: 60rem;
   }
   .aboutMe .gtAbout {
-    top: 35%;
+    top: 45%;
   }
 
   .cont-aboutMe {
