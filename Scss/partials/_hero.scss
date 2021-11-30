@@ -1,11 +1,13 @@
 .mainHead {
   @include flexCenter(column);
-  height: 70vh;
+  height: 90vh;
   font-family: "Playfair Display", serif;
   letter-spacing: 3px;
   font-size: 3rem;
   text-align: center;
   margin-top: -2.5rem;
+  position: relative;
+  overflow: hidden;
 }
 .Hero-wrapper {
   max-width: 100vw;
@@ -29,9 +31,12 @@
   font-size: 1.6rem;
   color: $text-secondary;
 }
-// .hero-whole-wrapper {
-//   min-height: 100vh;
-// }
+.hero-whole-wrapper {
+  max-width: 100vw;
+  overflow-x: hidden;
+  margin-left: -1rem;
+  // padding: 1rem;
+}
 // .mainHeadEl:hover ~ .cursor {
 //   transform: scale(17);
 // }
@@ -58,6 +63,7 @@
 }
 .boxHead {
   padding: 2rem;
+  margin-top: -9rem;
 }
 // first layer
 .firstLayer {
@@ -75,9 +81,13 @@
   width: 50%;
   margin-top: -2rem;
 }
+// .textcircl-cont {
+//   // overflow: hidden;
+//   // margin-right: -2rem;
+// }
 .textCircle {
   position: absolute;
-  bottom: -10%;
+  bottom: 20%;
   right: -4%;
   height: 20rem;
 }

@@ -10,6 +10,8 @@
 html {
   font-size: 62.5%;
   cursor: none;
+  -ms-scroll-snap-type: y mandatory;
+      scroll-snap-type: y mandatory;
 }
 
 a {
@@ -24,6 +26,27 @@ body {
   max-width: 100vw;
   overflow-x: hidden;
   min-height: 100vh;
+}
+
+::-webkit-scrollbar {
+  width: 0.5rem;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+  opacity: 0.5;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #808080;
+  opacity: 0.5;
+  border-radius: 1rem;
+  -webkit-transition: transform 0.5s ease;
+  transition: transform 0.5s ease;
+}
+
+.section {
+  scroll-snap-align: start;
 }
 
 .hide {
@@ -88,13 +111,6 @@ body {
 @media screen and (max-width: 900px) {
   html {
     font-size: 55%;
-    max-width: 100vw;
-    overflow: hidden;
-  }
-
-  body {
-    max-width: 100vw;
-    overflow: hidden;
   }
 
   .nav-bar {
@@ -115,7 +131,7 @@ body {
     background-color: white;
     position: fixed;
     max-width: 330px;
-    min-height: 100vh;
+    min-height: 100%;
     z-index: 50;
     top: 0;
     left: 0;
@@ -131,7 +147,7 @@ body {
     position: fixed;
     max-width: 330px;
     min-width: 320px;
-    min-height: 100vh;
+    min-height: 100%;
     z-index: 50;
     top: 0;
     left: 0;
@@ -192,6 +208,10 @@ body {
     left: -30%;
     top: 20%;
   }
+  .hero-whole-wrapper .mainHead {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
 
   .firstLayer p {
     font-size: 2.5rem;
@@ -199,14 +219,43 @@ body {
   .firstLayer .signature {
     width: 70%;
   }
+
+  .aboutMe {
+    flex-direction: column;
+    padding: 8rem !important;
+  }
+  .aboutMe .cont-aboutMe {
+    width: 100%;
+  }
+  .aboutMe .Contimg1 {
+    margin-top: 1rem;
+  }
+  .aboutMe p {
+    margin-bottom: 1rem;
+  }
+
+  .textCircle {
+    position: absolute;
+    bottom: -10%;
+    right: 0;
+    height: 20rem;
+  }
 }
 @media screen and (max-width: 450px) {
   html {
     font-size: 40%;
   }
 
+  .mainHead {
+    height: 70vh;
+  }
+
   .nav-bar {
     padding: 5rem;
+  }
+
+  .aboutMe .Contimg1 {
+    margin-top: -3rem;
   }
 }
 .cursor-circle {
@@ -300,8 +349,7 @@ body {
   justify-content: center;
   align-items: center;
   flex-direction: row;
-  min-width: 100%;
-  max-width: 100%;
+  width: 100%;
 }
 
 .link-list {
@@ -446,12 +494,14 @@ body {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  height: 70vh;
+  height: 90vh;
   font-family: "Playfair Display", serif;
   letter-spacing: 3px;
   font-size: 3rem;
   text-align: center;
   margin-top: -2.5rem;
+  position: relative;
+  overflow: hidden;
 }
 
 .Hero-wrapper {
@@ -478,6 +528,12 @@ body {
   color: #808080;
 }
 
+.hero-whole-wrapper {
+  max-width: 100vw;
+  overflow-x: hidden;
+  margin-left: -1rem;
+}
+
 .mainHeadEl {
   background-color: black;
   overflow: hidden;
@@ -501,6 +557,7 @@ body {
 
 .boxHead {
   padding: 2rem;
+  margin-top: -9rem;
 }
 
 .firstLayer {
@@ -525,14 +582,14 @@ body {
 
 .textCircle {
   position: absolute;
-  bottom: -10%;
+  bottom: 20%;
   right: -4%;
   height: 20rem;
 }
 
 .aboutMe {
   width: 100%;
-  margin-top: 12rem;
+  margin-top: -3rem;
   min-height: 90vh;
   max-height: 100vh;
   padding: 15rem;
@@ -549,6 +606,7 @@ body {
   font-size: 17rem;
   opacity: 0.2;
   color: #808080;
+  z-index: -1;
 }
 
 .cont-aboutMe {

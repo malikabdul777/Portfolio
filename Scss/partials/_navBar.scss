@@ -25,8 +25,7 @@
 .nav-bar {
   height: 10rem;
   @include flexCenter(row);
-  min-width: 100%;
-  max-width: 100%;
+  width: 100%;
 }
 .link-list {
   @include flexCenter(row);
