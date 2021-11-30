@@ -269,11 +269,11 @@ body {
     position: absolute;
     bottom: -10%;
     right: 0;
-    max-height: 25rem;
+    max-height: 30rem;
   }
 
   .boxHead {
-    margin-top: -1.5rem;
+    margin-top: -3rem;
   }
 
   .aboutMe .myImg {
@@ -284,7 +284,7 @@ body {
     width: 50%;
   }
   .cont-aboutMe h2 {
-    font-size: 2.4rem;
+    font-size: 3.2rem;
     margin-bottom: 3rem;
   }
   .cont-aboutMe p {
