@@ -241,7 +241,7 @@ gsap.from(".ghostText", {
   scrollTrigger: {
     trigger: ".aboutMe",
     // markers: true,
-    start: "top 60%",
+    start: "top 75%",
     end: "bottom 15%",
     toggleActions: "play complete restart reverse",
   },
