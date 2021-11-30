@@ -30,11 +30,13 @@ body {
 
 ::-webkit-scrollbar {
   width: 0.5rem;
+  z-index: -1;
 }
 
 ::-webkit-scrollbar-track {
   background: transparent;
   opacity: 0.5;
+  z-index: -1;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -43,10 +45,12 @@ body {
   border-radius: 1rem;
   -webkit-transition: transform 0.5s ease;
   transition: transform 0.5s ease;
+  z-index: -1;
 }
 
 .section {
   scroll-snap-align: start;
+  min-height: 100vh;
 }
 
 .hide {
@@ -207,6 +211,8 @@ body {
   .hero-whole-wrapper .circle {
     left: -30%;
     top: 20%;
+    min-height: 45rem;
+    min-width: 45rem;
   }
   .hero-whole-wrapper .mainHead {
     max-width: 100%;
@@ -233,21 +239,22 @@ body {
   .aboutMe p {
     margin-bottom: 1rem;
   }
+  .aboutMe .ghostText {
+    font-size: 10rem;
+    top: 0;
+    left: 8%;
+  }
 
   .textCircle {
     position: absolute;
     bottom: -10%;
     right: 0;
-    height: 20rem;
+    max-height: 15rem;
   }
 }
 @media screen and (max-width: 450px) {
   html {
     font-size: 40%;
-  }
-
-  .mainHead {
-    height: 70vh;
   }
 
   .nav-bar {
@@ -501,7 +508,7 @@ body {
   text-align: center;
   margin-top: -2.5rem;
   position: relative;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
 .Hero-wrapper {
@@ -582,7 +589,7 @@ body {
 
 .textCircle {
   position: absolute;
-  bottom: 20%;
+  bottom: 10%;
   right: -4%;
   height: 20rem;
 }

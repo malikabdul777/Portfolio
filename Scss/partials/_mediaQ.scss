@@ -110,6 +110,8 @@
     .circle {
       left: -30%;
       top: 20%;
+      min-height: 45rem;
+      min-width: 45rem;
     }
     .mainHead {
       max-width: 100%;
@@ -137,21 +139,26 @@
     p {
       margin-bottom: 1rem;
     }
+    .ghostText {
+      font-size: 10rem;
+      top: 0;
+      left: 8%;
+    }
   }
   .textCircle {
     position: absolute;
     bottom: -10%;
     right: 0;
-    height: 20rem;
+    max-height: 15rem;
   }
 }
 @media screen and (max-width: 450px) {
   html {
     font-size: 40%;
   }
-  .mainHead {
-    height: 70vh;
-  }
+  // .mainHead {
+  //   // height: 70vh;
+  // }
   .nav-bar {
     padding: 5rem;
   }
@@ -161,3 +168,11 @@
     }
   }
 }
+// @media screen and (max-width: 400px) {
+//   html {
+//     font-size: 40%;
+//   }
+//   .section {
+//     heigth: 80vh;
+//   }
+// }

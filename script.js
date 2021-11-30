@@ -10,6 +10,9 @@ const burger = document.querySelector(".burger");
 const span = document.querySelectorAll(".spanNav");
 const linkList = document.querySelector(".link-list");
 const whiteMenu = document.querySelector(".whiteMenu");
+const logo = document.querySelector(".logo");
+
+gsap.registerPlugin(ScrollTrigger);
 
 window.mobileAndTabletCheck = function () {
   let check = false;
@@ -230,4 +233,16 @@ gsap.to(".textCircle", {
   paused: false,
   repeatDelay: 0,
   delay: 0,
+});
+gsap.from(".ghostText", {
+  x: "-150%",
+  opacity: 0.5,
+  duration: 1.5,
+  scrollTrigger: {
+    trigger: ".aboutMe",
+    markers: true,
+    start: "top 60%",
+    end: "bottom 15%",
+    toggleActions: "play complete restart reverse",
+  },
 });
