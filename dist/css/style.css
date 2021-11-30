@@ -279,7 +279,7 @@ body {
     height: 60rem;
   }
   .aboutMe .gtAbout {
-    margin-top: 5rem;
+    top: 35%;
   }
 
   .cont-aboutMe {
