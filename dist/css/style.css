@@ -256,7 +256,7 @@ body {
   }
 
   .hero-whole-wrapper .circle {
-    left: -30%;
+    left: -50%;
     top: 20%;
     min-height: 75rem;
     min-width: 75rem;
@@ -286,7 +286,7 @@ body {
     height: 60rem;
   }
   .aboutMe .gtAbout {
-    top: 45%;
+    top: 30%;
   }
 
   .cont-aboutMe {
