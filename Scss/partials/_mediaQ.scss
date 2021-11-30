@@ -171,6 +171,7 @@
     position: absolute;
     bottom: -10%;
     right: 0;
+    min-height: 38rem;
     max-height: 40rem;
   }
   .boxHead {
@@ -179,6 +180,9 @@
   .aboutMe {
     .myImg {
       height: 60rem;
+    }
+    .gtAbout {
+      margin-top: 5rem;
     }
   }
   .cont-aboutMe {

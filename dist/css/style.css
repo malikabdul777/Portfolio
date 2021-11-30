@@ -267,6 +267,7 @@ body {
     position: absolute;
     bottom: -10%;
     right: 0;
+    min-height: 38rem;
     max-height: 40rem;
   }
 
@@ -276,6 +277,9 @@ body {
 
   .aboutMe .myImg {
     height: 60rem;
+  }
+  .aboutMe .gtAbout {
+    margin-top: 5rem;
   }
 
   .cont-aboutMe {
