@@ -14,6 +14,8 @@ const logo = document.querySelector(".logo");
 const wavyClass = document.querySelectorAll(".Textureimg");
 const filterEl = document.querySelector("#turbulence");
 
+const iconMainCont = document.querySelectorAll(".iconMainCont");
+
 gsap.registerPlugin(ScrollTrigger);
 
 window.mobileAndTabletCheck = function () {
@@ -45,7 +47,7 @@ document.addEventListener("mousemove", (e) => {
     "style",
     `top: ${e.pageY + 8.8}px; left: ${e.pageX + 8.8}px`
   );
-  cursorCircle.setAttribute("style", `top: ${e.pageY}px; left: ${e.pageX}px`);
+  // cursorCircle.setAttribute("style", `top: ${e.pageY}px; left: ${e.pageX}px`);
 });
 
 document.addEventListener("click", () => {
@@ -71,8 +73,8 @@ document.addEventListener("click", () => {
 // });
 
 boxHead.addEventListener("mouseenter", () => {
-  cursorCircle.classList.add("hide");
-  cursorClick.classList.add("hide");
+  // cursorCircle.classList.add("hide");
+  // cursorClick.classList.add("hide");
   cursor.classList.add("cursorGrow");
   // gsap.to(`.cursor`, {
   //   scale: 17,
@@ -90,14 +92,14 @@ boxHead.addEventListener("mouseleave", () => {
 });
 
 function enlargeCursor(val = "cursorGrow") {
-  cursorCircle.classList.add("hide");
-  cursorClick.classList.add("hide");
+  // cursorCircle.classList.add("hide");
+  // cursorClick.classList.add("hide");
   cursor.classList.add(`${val}`);
 }
 function shrinkCursor(val = "cursorGrow") {
   cursor.classList.remove(`${val}`);
-  cursorCircle.classList.remove("hide");
-  cursorClick.classList.remove("hide");
+  // cursorCircle.classList.remove("hide");
+  // cursorClick.classList.remove("hide");
 }
 revelaHead.forEach((el) => {
   el.addEventListener("mouseover", () => {
@@ -152,6 +154,37 @@ t1.from(".introp", {
   y: -20,
   opacity: 0,
 });
+// const axisArr = ["x", "y"];
+// let randAxis = axisArr[Math.floor(Math.random() * axisArr.length)];
+// console.log(randAxis);
+// iconMainCont.forEach((el, i) => {
+//   t1.from(el, {
+//     width: 0,
+//     height: 0,
+//     duration: 1.5,
+//     opacity: 0,
+//   });
+// });
+// let randNum = Math.round(Math.random() * (14 - 9) + 9);
+
+// t1.to(".htmlIcon", {
+//   y: randNum,
+//   yoyo: true,
+//   repeat: -1,
+//   duration: 1,
+//   ease: "power2.out",
+// }).to(
+//   ".cssIcon",
+//   {
+//     x: randNum,
+//     yoyo: true,
+//     repeat: -1,
+//     duration: 1,
+//     ease: "power2.out",
+//     delay: -2,
+//   },
+//   "-=2"
+// );
 t1.from(
   ".textCircle",
   {
@@ -252,7 +285,7 @@ gsap.from(".ghostText", {
 });
 gsap.from(".Contimg1", {
   x: "100%",
-  opacity: 0.2,
+  opacity: 0.5,
   duration: 1,
   scrollTrigger: {
     trigger: ".aboutMe",

@@ -12,6 +12,7 @@
   transition-duration: 150ms;
   transition-timing-function: ease-out;
   /* animation: cursorClickAnim 0.5s infinite; */
+  mix-blend-mode: difference;
 }
 .cursor {
   z-index: 99;
@@ -23,7 +24,6 @@
   mix-blend-mode: difference;
   transition: all 0.5s ease;
   transition-property: background, transform;
-  // backdrop-filter: grayscale();
 }
 .shrink {
   animation: realCursorClickAnim 0.5s infinite;

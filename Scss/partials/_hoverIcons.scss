@@ -1,0 +1,25 @@
+.iconMainCont {
+  position: absolute;
+  height: 4.5rem;
+  width: 4.5rem;
+  transform: rotate(-25deg);
+  // opacity: 0.5;
+  @include flexCenter(row);
+  border-radius: 50%;
+  .hoverIcon {
+    margin-top: 0.3rem;
+    width: 3rem;
+    object-fit: contain;
+    opacity: 1;
+  }
+}
+.htmlIcon {
+  top: 20%;
+  left: 20%;
+  background-color: #ff6a0062;
+}
+.cssIcon {
+  top: 20%;
+  right: 20%;
+  background-color: #29a9df56;
+}
