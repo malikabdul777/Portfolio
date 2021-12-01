@@ -59,6 +59,7 @@ body {
 .section {
   // scroll-snap-align: start;
   min-height: 100vh;
+  overflow-x: hidden !important;
 }
 // .web-wrapper {
 //   scroll-snap-type: y mandatory;
