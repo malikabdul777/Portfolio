@@ -298,175 +298,178 @@ gsap.from(".Contimg1", {
 
 ///// smooth scroll
 
-class Smooth {
-  constructor() {
-    this.bindAll();
+// import Scrollbar from "smooth-scrollbar";
+// Scrollbar.init(document.querySelector("#my-scrollbar"));
 
-    this.ui = {
-      el: document.querySelector(".js-scroll"),
-      sections: document.querySelectorAll(".js-scroll-section"),
-      heightEl: null,
-    };
+// class Smooth {
+//   constructor() {
+//     this.bindAll();
 
-    this.state = {
-      total: this.ui.sections.length,
-      scroll: {
-        target: 0,
-        current: 0,
-        ease: 0.125,
-      },
-      bounds: {
-        height: window.innerHeight,
-        scrollHeight: 0,
-        threshold: 100,
-      },
-      isResizing: false,
-    };
+//     this.ui = {
+//       el: document.querySelector(".js-scroll"),
+//       sections: document.querySelectorAll(".js-scroll-section"),
+//       heightEl: null,
+//     };
 
-    this.sections = null;
+//     this.state = {
+//       total: this.ui.sections.length,
+//       scroll: {
+//         target: 0,
+//         current: 0,
+//         ease: 0.125,
+//       },
+//       bounds: {
+//         height: window.innerHeight,
+//         scrollHeight: 0,
+//         threshold: 100,
+//       },
+//       isResizing: false,
+//     };
 
-    this.init();
-  }
+//     this.sections = null;
 
-  bindAll() {
-    ["onScroll", "onResize", "run"].forEach(
-      (fn) => (this[fn] = this[fn].bind(this))
-    );
-  }
+//     this.init();
+//   }
 
-  run() {
-    const { scroll } = this.state;
+//   bindAll() {
+//     ["onScroll", "onResize", "run"].forEach(
+//       (fn) => (this[fn] = this[fn].bind(this))
+//     );
+//   }
 
-    scroll.current += (scroll.target - scroll.current) * scroll.ease;
-    if (scroll.current < 0.1) scroll.current = 0;
+//   run() {
+//     const { scroll } = this.state;
 
-    this.transformSections();
+//     scroll.current += (scroll.target - scroll.current) * scroll.ease;
+//     if (scroll.current < 0.1) scroll.current = 0;
 
-    requestAnimationFrame(this.run);
-  }
+//     this.transformSections();
 
-  transformSections() {
-    const { total, isResizing, scroll } = this.state;
-    const translate = `translate3d(0, ${-scroll.current}px, 0)`;
+//     requestAnimationFrame(this.run);
+//   }
 
-    for (let i = 0; i < total; i++) {
-      const data = this.sections[i];
-      const { el, bounds } = data;
-      const isVisible = this.isVisible(bounds);
+//   transformSections() {
+//     const { total, isResizing, scroll } = this.state;
+//     const translate = `translate3d(0, ${-scroll.current}px, 0)`;
 
-      if (isVisible || isResizing) {
-        Object.assign(data, { out: false });
-        el.style.transform = translate;
-      } else if (!data.out) {
-        Object.assign(data, { out: true });
-        el.style.transform = translate;
-      }
-    }
-  }
+//     for (let i = 0; i < total; i++) {
+//       const data = this.sections[i];
+//       const { el, bounds } = data;
+//       const isVisible = this.isVisible(bounds);
 
-  isVisible(bounds) {
-    const { height, threshold } = this.state.bounds;
-    const { current } = this.state.scroll;
-    const { top, bottom } = bounds;
+//       if (isVisible || isResizing) {
+//         Object.assign(data, { out: false });
+//         el.style.transform = translate;
+//       } else if (!data.out) {
+//         Object.assign(data, { out: true });
+//         el.style.transform = translate;
+//       }
+//     }
+//   }
 
-    const start = top - current;
-    const end = bottom - current;
-    const isVisible = start < threshold + height && end > -threshold;
+//   isVisible(bounds) {
+//     const { height, threshold } = this.state.bounds;
+//     const { current } = this.state.scroll;
+//     const { top, bottom } = bounds;
 
-    return isVisible;
-  }
+//     const start = top - current;
+//     const end = bottom - current;
+//     const isVisible = start < threshold + height && end > -threshold;
 
-  getSections() {
-    if (!this.ui.sections) return;
-    this.sections = [];
+//     return isVisible;
+//   }
 
-    this.ui.sections.forEach((el) => {
-      el.style.transform = "translate3d(0, 0, 0)";
+//   getSections() {
+//     if (!this.ui.sections) return;
+//     this.sections = [];
 
-      const { top, bottom } = el.getBoundingClientRect();
-      const state = {
-        el,
-        bounds: {
-          top,
-          bottom,
-        },
-        out: true,
-      };
+//     this.ui.sections.forEach((el) => {
+//       el.style.transform = "translate3d(0, 0, 0)";
 
-      this.sections.push(state);
-    });
-  }
+//       const { top, bottom } = el.getBoundingClientRect();
+//       const state = {
+//         el,
+//         bounds: {
+//           top,
+//           bottom,
+//         },
+//         out: true,
+//       };
 
-  setInitial() {
-    const { el } = this.ui;
+//       this.sections.push(state);
+//     });
+//   }
 
-    Object.assign(el.style, {
-      position: "fixed",
-      top: 0,
-      left: 0,
-      width: "100%",
-      height: "100%",
-      overflow: "hidden",
-    });
+//   setInitial() {
+//     const { el } = this.ui;
 
-    document.body.classList.add("is-smooth-scroll");
-  }
+//     Object.assign(el.style, {
+//       position: "fixed",
+//       top: 0,
+//       left: 0,
+//       width: "100%",
+//       height: "100%",
+//       overflow: "hidden",
+//     });
 
-  setFakeHeight() {
-    const { total, bounds } = this.state;
+//     document.body.classList.add("is-smooth-scroll");
+//   }
 
-    if (!this.ui.heightEl) {
-      this.ui.heightEl = document.createElement("div");
-      this.ui.heightEl.classList.add("js-fake-scroll");
-      document.body.appendChild(this.ui.heightEl);
-    }
+//   setFakeHeight() {
+//     const { total, bounds } = this.state;
 
-    const { bottom } = this.ui.sections[total - 1].getBoundingClientRect();
-    bounds.scrollHeight = bottom;
+//     if (!this.ui.heightEl) {
+//       this.ui.heightEl = document.createElement("div");
+//       this.ui.heightEl.classList.add("js-fake-scroll");
+//       document.body.appendChild(this.ui.heightEl);
+//     }
 
-    this.ui.heightEl.style.height = `${bottom}px`;
-  }
+//     const { bottom } = this.ui.sections[total - 1].getBoundingClientRect();
+//     bounds.scrollHeight = bottom;
 
-  onScroll() {
-    const { scroll } = this.state;
+//     this.ui.heightEl.style.height = `${bottom}px`;
+//   }
 
-    scroll.target = window.scrollY;
-  }
+//   onScroll() {
+//     const { scroll } = this.state;
 
-  onResize() {
-    this.state.isResizing = true;
+//     scroll.target = window.scrollY;
+//   }
 
-    if (this.sections) {
-      this.sections.forEach(({ el, bounds }) => {
-        el.style.transform = "translate3d(0, 0, 0)";
+//   onResize() {
+//     this.state.isResizing = true;
 
-        const { top, bottom } = el.getBoundingClientRect();
+//     if (this.sections) {
+//       this.sections.forEach(({ el, bounds }) => {
+//         el.style.transform = "translate3d(0, 0, 0)";
 
-        bounds.top = top;
-        bounds.bottom = bottom;
-      });
+//         const { top, bottom } = el.getBoundingClientRect();
 
-      this.transformSections();
-    }
+//         bounds.top = top;
+//         bounds.bottom = bottom;
+//       });
 
-    this.setFakeHeight();
+//       this.transformSections();
+//     }
 
-    this.state.isResizing = false;
-  }
+//     this.setFakeHeight();
 
-  addListeners() {
-    window.addEventListener("scroll", this.onScroll);
-    window.addEventListener("resize", this.onResize);
-  }
+//     this.state.isResizing = false;
+//   }
 
-  init() {
-    this.setInitial();
-    this.setFakeHeight();
-    this.getSections();
-    this.addListeners();
+//   addListeners() {
+//     window.addEventListener("scroll", this.onScroll);
+//     window.addEventListener("resize", this.onResize);
+//   }
 
-    requestAnimationFrame(this.run);
-  }
-}
+//   init() {
+//     this.setInitial();
+//     this.setFakeHeight();
+//     this.getSections();
+//     this.addListeners();
 
-new Smooth();
+//     requestAnimationFrame(this.run);
+//   }
+// }
+
+// new Smooth();
