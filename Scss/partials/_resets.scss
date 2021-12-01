@@ -35,10 +35,16 @@ body {
   width: 0.5rem;
   z-index: -1;
 }
+::-webkit-scrollbar:hover {
+  transform: scaleX(3);
+}
 ::-webkit-scrollbar-track {
   background: transparent;
   opacity: 0.5;
   z-index: -1;
+}
+::-webkit-scrollbar-track:hover {
+  transform: scaleX(3);
 }
 ::-webkit-scrollbar-thumb {
   background: $text-secondary;
@@ -46,6 +52,9 @@ body {
   border-radius: 1rem;
   transition: transform 0.5s ease;
   z-index: -1;
+}
+::-webkit-scrollbar-thumb:hover {
+  transform: scaleX(3);
 }
 .section {
   // scroll-snap-align: start;
@@ -66,3 +75,6 @@ body {
 .inToView {
   transform: translateX(0) !important;
 }
+// .Textureimg {
+//   filter: url(#noise);
+// }

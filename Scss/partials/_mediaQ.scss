@@ -182,9 +182,12 @@
     min-height: 38rem;
     max-height: 40rem;
   }
-  .boxHead {
-    margin-top: -3rem;
+  .mainHead {
+    .boxHead {
+      margin-top: -20rem;
+    }
   }
+
   .aboutMe {
     .myImg {
       height: 60rem;
@@ -196,7 +199,7 @@
   .cont-aboutMe {
     width: 50%;
     h2 {
-      font-size: 3.2rem;
+      font-size: 4rem;
       margin-bottom: 3rem;
     }
     p {

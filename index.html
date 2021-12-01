@@ -16,18 +16,20 @@
       src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.8.0/ScrollTrigger.min.js"
     ></script>
     <script defer src="./libs/vanilla-tilt.min.js"></script>
-    <script defer src="script.js"></script>
+    <script type="module" defer src="script.js"></script>
   </head>
   <body>
-    <div class="web-wrapper">
+    <div class="cursor-circle"></div>
+    <div class="cursor"></div>
+    <div class="cursor-click"></div>
+    <div class="web-wrapper scroll | js-scroll">
       <!-- <div class="firstLayer">
       <img class="signature" src="./images/signature.svg" alt="name of dev" />
       <p class="signatureDesig">Full Stack Web Developer.</p>
     </div> -->
-      <div class="cursor-circle"></div>
-      <div class="cursor"></div>
-      <div class="cursor-click"></div>
-      <section class="hero-whole-wrapper section">
+      <section
+        class="hero-whole-wrapper section scroll-section js-scroll-section"
+      >
         <div class="circle"></div>
         <div class="Hero-wrapper">
           <nav class="nav-bar">
@@ -66,7 +68,7 @@
           </div>
         </div>
       </section>
-      <section class="aboutMe section">
+      <section class="aboutMe section scroll-section js-scroll-section">
         <h2 class="ghostText gtAbout">About Me</h2>
         <div class="cont-aboutMe">
           <h2>Who am I?</h2>
@@ -74,16 +76,45 @@
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum iure
             itaque sint, adipisci, veritatis earum quam ratione minus similique
             vitae placeat. Numquam id commodi obcaecati ea asperiores?
-            Excepturi, consectetur quod?
+            Excepturiii, consectetur quod?
           </p>
         </div>
-        <div class="Contimg1">
-          <img class="myImg" src="./images/Abdul Malik-min.jpeg" alt="logo" />
+        <div
+          class="Contimg1"
+          data-tilt
+          data-tilt-scale="1.03"
+          data-tilt-glare
+          data-tilt-max-glare="0.4"
+        >
+          <img
+            class="myImg Textureimg"
+            src="./images/Abdul Malik-min.jpeg"
+            alt="Abdul Malik"
+          />
         </div>
       </section>
-      <section class="section">
+      <section class="section scroll-section js-scroll-section">
         <div></div>
       </section>
+
+      <!-- <section class="webGl section" id="webGl">
+        <div></div>
+      </section> -->
     </div>
+    <!-- <svg>
+      <filter id="noise" x="0%" y="0%" width="100%" height="100%">
+        <feTurbulence
+          baseFrequency="0.00 0.00"
+          result="NOISE"
+          numOctaves="1"
+          id="turbulence"
+        />
+        <feDisplacementMap
+          in="SourceGraphic"
+          in2="NOISE"
+          scale="20"
+        ></feDisplacementMap>
+      </filter>
+    </svg> -->
   </body>
 </html>

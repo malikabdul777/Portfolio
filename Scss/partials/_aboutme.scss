@@ -24,6 +24,23 @@
     margin-bottom: 3rem;
   }
 }
+.Contimg1 {
+  overflow: hidden;
+  transition: border-radius 0.2s linear;
+  border-radius: 1.5rem;
+}
+.Contimg1:hover {
+  border-radius: 1.5rem;
+}
+.js-tilt-glare {
+  border-radius: 1.5rem;
+}
 .myImg {
   height: 40rem;
+  transform: scale(1.02);
+  // transition: transform 0.5s ease;
 }
+// .myImg:hover {
+//   transform: scale(1.09) rotate(-4deg);
+//   background-blend-mode: lighten;
+// }
