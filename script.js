@@ -59,6 +59,18 @@ localStorage.setItem("asscentColor", newAsscent);
 const root = document.documentElement;
 root.style.setProperty("--color-primary", newAsscent);
 
+///// Scroll to Top
+
+if (history.scrollRestoration) {
+  history.scrollRestoration = "manual";
+} else {
+  window.onbeforeunload = function () {
+    window.scrollTo(0, 0);
+  };
+}
+
+//////////////
+
 window.mobileAndTabletCheck = function () {
   let check = false;
   (function (a) {
@@ -153,9 +165,8 @@ revelaHead.forEach((el) => {
   });
 });
 
-////////
-// left: 37, up: 38, right: 39, down: 40,
-// spacebar: 32, pageup: 33, pagedown: 34, end: 35, home: 36
+//////// prevent Scrolling
+
 var keys = { 37: 1, 38: 1, 39: 1, 40: 1 };
 
 function preventDefault(e) {
@@ -169,7 +180,6 @@ function preventDefaultForScrollKeys(e) {
   }
 }
 
-// modern Chrome requires { passive: false } when adding event
 var supportsPassive = false;
 try {
   window.addEventListener(
@@ -187,7 +197,6 @@ var wheelOpt = supportsPassive ? { passive: false } : false;
 var wheelEvent =
   "onwheel" in document.createElement("div") ? "wheel" : "mousewheel";
 
-// call this to Disable
 function disableScroll() {
   window.addEventListener("DOMMouseScroll", preventDefault, false); // older FF
   window.addEventListener(wheelEvent, preventDefault, wheelOpt); // modern desktop
@@ -195,7 +204,6 @@ function disableScroll() {
   window.addEventListener("keydown", preventDefaultForScrollKeys, false);
 }
 
-// call this to Enable
 function enableScroll() {
   window.removeEventListener("DOMMouseScroll", preventDefault, false);
   window.removeEventListener(wheelEvent, preventDefault, wheelOpt);
@@ -203,7 +211,7 @@ function enableScroll() {
   window.removeEventListener("keydown", preventDefaultForScrollKeys, false);
 }
 
-////////
+///////////
 let t1 = gsap.timeline();
 let t2 = gsap.timeline();
 t1.addPause(2);
@@ -309,9 +317,8 @@ t1.from(
 //   transformOrigin: "top",
 //   rotateZ: "-45deg",
 // });
+let mob = window.matchMedia("(max-width: 900px)");
 burger.addEventListener("click", () => {
-  let mob = window.matchMedia("(max-width: 900px)");
-
   linkList.classList.toggle("inToView");
   whiteMenu.classList.toggle("inToView");
 
@@ -407,15 +414,18 @@ gsap.from(".gtIUse", {
     scrub: 1,
   },
 });
-gsap.to(".cont-aboutMe", {
-  y: "38%",
-  duration: 0.1,
-  ease: "power3.out",
-  scrollTrigger: {
-    trigger: ".iUseSec",
-    // markers: true,
-    start: "top 85%",
-    end: "bottom 98%",
-    scrub: 1,
-  },
-});
+
+if (!mob.matches) {
+  gsap.to(".cont-aboutMe", {
+    y: "38%",
+    duration: 0.1,
+    ease: "power3.out",
+    scrollTrigger: {
+      trigger: ".iUseSec",
+      // markers: true,
+      start: "top 85%",
+      end: "bottom 98%",
+      scrub: 1,
+    },
+  });
+}

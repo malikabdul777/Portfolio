@@ -2,7 +2,7 @@
 //Cursor
 
 .cursor-circle {
-  z-index: 90;
+  z-index: 99;
   width: 2.4rem;
   height: 2.4rem;
   border: 0.1rem solid $cursorColor;
@@ -34,7 +34,7 @@
   border: 0.1rem solid $color-primary;
 }
 .cursor-click {
-  z-index: 90;
+  z-index: 99;
   width: 2.4rem;
   height: 2.4rem;
   border: 0.1rem solid $color-primary;

@@ -351,7 +351,7 @@ body {
 }
 
 .cursor-circle {
-  z-index: 90;
+  z-index: 99;
   width: 2.4rem;
   height: 2.4rem;
   border: 0.1rem solid #da6217;
@@ -389,7 +389,7 @@ body {
 }
 
 .cursor-click {
-  z-index: 90;
+  z-index: 99;
   width: 2.4rem;
   height: 2.4rem;
   border: 0.1rem solid var(--color-primary);
