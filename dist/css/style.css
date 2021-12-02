@@ -263,16 +263,17 @@ body {
 
   .aboutMe {
     flex-direction: column;
-    padding: 8rem !important;
+    padding: 8rem 8rem 4rem 8rem !important;
   }
   .aboutMe .cont-aboutMe {
     width: 100%;
   }
   .aboutMe .Contimg1 {
-    margin-top: 1rem;
+    margin-top: 2rem;
+    overflow: hidden;
   }
   .aboutMe p {
-    margin-bottom: 1rem;
+    margin-bottom: 4rem;
   }
   .aboutMe .ghostText {
     font-size: 10rem;

@@ -128,16 +128,18 @@
   }
   .aboutMe {
     flex-direction: column;
-    padding: 8rem !important;
+    padding: 8rem 8rem 4rem 8rem !important;
     // padding-bottom: 25rem !important;
+    // padding-bottom: 2rem;
     .cont-aboutMe {
       width: 100%;
     }
     .Contimg1 {
-      margin-top: 1rem;
+      margin-top: 2rem;
+      overflow: hidden;
     }
     p {
-      margin-bottom: 1rem;
+      margin-bottom: 4rem;
     }
     .ghostText {
       font-size: 10rem;
