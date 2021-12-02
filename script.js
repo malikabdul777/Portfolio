@@ -116,23 +116,25 @@ let t1 = gsap.timeline();
 
 /////////////////////////////////////
 
-// t1.from(".signature", {
-//   y: "-100%",
-//   opacity: 0,
-//   delay: 0.3,
-//   duration: 0.5,
-// });
-// t1.from(".signatureDesig", {
-//   // y: "100%",
-//   opacity: 0,
-//   duration: 0.8,
-// });
-// t1.to(".firstLayer", {
-//   y: "100%",
-//   duration: 1,
-//   delay: 0.8,
-//   display: "none",
-// });
+t1.from(".signature", {
+  y: "-100%",
+  opacity: 0,
+  delay: 0.3,
+  duration: 0.5,
+});
+t1.from(".signatureDesig", {
+  // y: "100%",
+  opacity: 0,
+  duration: 0.8,
+});
+t1.to(".firstLayer", {
+  y: "100%",
+  duration: 1,
+  delay: 0.8,
+  display: "none",
+});
+const firstLayer = document.querySelector(".firstLayer");
+
 // t1.from(
 //   ".nav-bar",
 //   {
@@ -150,8 +152,8 @@ let t1 = gsap.timeline();
 //   "-=0.6"
 // );
 t1.to(".revelaHead", { y: "0%", duration: 0.7, stagger: 0.2 });
-t1.from(".introp", {
-  y: -20,
+t1.from(".freelanceTit", {
+  y: 20,
   opacity: 0,
 });
 // const axisArr = ["x", "y"];
@@ -295,6 +297,15 @@ gsap.from(".Contimg1", {
     scrub: 1,
   },
 });
+/// parallex
+
+// var scene = document.getElementById("scene");
+// var parallaxInstance = new Parallax(scene);
+
+// var image = document.getElementsByClassName("mainHeadEl");
+// new simpleParallax(image);
+// var img = document.querySelector(".hero-whole-wrapper");
+// new simpleParallax(img);
 
 ///// smooth scroll
 

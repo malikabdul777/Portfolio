@@ -16,17 +16,22 @@
       src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.8.0/ScrollTrigger.min.js"
     ></script>
     <script defer src="./libs/vanilla-tilt.min.js"></script>
-    <script type="module" defer src="script.js"></script>
+    <!-- <script defer src="./libs/simpleParallax.js"></script> -->
+    <script
+      defer
+      src="https://cdnjs.cloudflare.com/ajax/libs/parallax/3.1.0/parallax.min.js"
+    ></script>
+    <script defer src="script.js"></script>
   </head>
   <body id="my-scrollbar">
     <div class="cursor-circle"></div>
     <div class="cursor"></div>
     <div class="cursor-click"></div>
     <div class="web-wrapper">
-      <!-- <div class="firstLayer">
-      <img class="signature" src="./images/signature.svg" alt="name of dev" />
-      <p class="signatureDesig">Full Stack Web Developer.</p>
-    </div> -->
+      <div class="firstLayer">
+        <img class="signature" src="./images/signature.svg" alt="name of dev" />
+        <p class="signatureDesig">Full Stack Web Developer.</p>
+      </div>
       <section class="hero-whole-wrapper section">
         <div class="circle"></div>
         <div class="Hero-wrapper">
@@ -34,8 +39,12 @@
             <ul class="link-list">
               <div class="whiteMenu"></div>
               <div class="firstSet navSet">
-                <li class="links"><a href="#" class="link">HOME</a></li>
-                <li class="links"><a href="#" class="link">WORK</a></li>
+                <li class="links">
+                  <a href="#" class="link">HOME</a>
+                </li>
+                <li class="links">
+                  <a href="#" class="link">WORK</a>
+                </li>
               </div>
               <img src="images/logo.svg" alt="logo" class="logo" />
               <div class="secondSet navSet">
@@ -53,6 +62,7 @@
         </div>
         <div class="mainHead">
           <div class="boxHead">
+            <!-- <p></p> -->
             <!-- <div class="iconMainCont htmlIcon">
               <img
                 class="hoverIcon"
@@ -67,13 +77,20 @@
                 alt="html icon"
               />
             </div> -->
+            <p class="freelanceTit">--- Available for Freelance Work</p>
             <h1 class="mainHeadEl">
-              <span class="revelaHead">Welcome to my</span>
+              <span class="revelaHead">I'm Freelance Developer</span>
             </h1>
             <h1 class="mainHeadEl">
-              <span class="revelaHead">Creative Portfolio!</span>
+              <span class="revelaHead"
+                >Taking Your
+                <p class="spanDiff">Imaginations</p>
+              </span>
             </h1>
-            <p class="introp">I design and build ultimate things for web.</p>
+            <h1 class="mainHeadEl">
+              <span class="revelaHead">Online</span>
+            </h1>
+            <!-- <p class="introp">I design and build ultimate things for web.</p> -->
           </div>
           <div class="textcircl-cont">
             <img class="textCircle" src="./images/circleText.svg" alt="" />
@@ -83,7 +100,15 @@
       <section class="aboutMe section">
         <h2 class="ghostText gtAbout">About Me</h2>
         <div class="cont-aboutMe">
-          <h2>Who am I?</h2>
+          <div>
+            <div class="infiScrollCont infiScrollCont-whoAmI">
+              <h2 class="infinScrollHead whoAmI">Who am I?</h2>
+              <!-- <h2 class="infinScrollHead whoAmI">Who am I?</h2> -->
+            </div>
+          </div>
+          <!-- <div class="infiScrollCont infiScrollCont-whoAmI">
+            <h2 class="infinScrollHead whoAmI">Who am I?</h2>
+          </div> -->
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum iure
             itaque sint, adipisci, veritatis earum quam ratione minus similique

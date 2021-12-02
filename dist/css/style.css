@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Poppins:wght@300;400;500;600&display=swap");
 *,
 *::after,
 *::before {
@@ -23,6 +23,7 @@ body {
   color: white;
   font-size: 1.6rem;
   max-width: 100vw;
+  overflow-x: hidden;
   height: 100vh;
 }
 
@@ -120,6 +121,22 @@ body {
   }
   100% {
     transform: scale(1);
+  }
+}
+@-webkit-keyframes scrollText {
+  0% {
+    transform: translateX(120%);
+  }
+  100% {
+    transform: translateX(-120%);
+  }
+}
+@keyframes scrollText {
+  0% {
+    transform: translateX(120%);
+  }
+  100% {
+    transform: translateX(-120%);
   }
 }
 @media screen and (max-width: 900px) {
@@ -362,7 +379,7 @@ body {
   border: 0.1rem solid #66fcf1;
   border-radius: 50%;
   position: absolute;
-  opacity: 0.3;
+  opacity: 0.9;
   transition-duration: 150ms;
   transition-timing-function: ease-out;
 }
@@ -555,13 +572,18 @@ body {
   align-items: center;
   flex-direction: column;
   height: 90vh;
-  font-family: "Playfair Display", serif;
+  font-family: "Montserrat", sans-serif;
   letter-spacing: 3px;
-  font-size: 3rem;
-  text-align: center;
-  margin-top: -2.5rem;
+  font-size: 4.5rem;
+  margin-top: -3rem;
   position: relative;
   overflow-x: hidden;
+}
+
+.freelanceTit {
+  font-size: 1.8rem;
+  color: #808080;
+  margin: 0 0 2rem 3rem;
 }
 
 .Hero-wrapper {
@@ -613,6 +635,8 @@ body {
   left: 0;
   z-index: 90;
   border-top: 0.1rem solid #66fcf1;
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+          clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
 }
 
 .boxHead {
@@ -632,7 +656,7 @@ body {
   margin-top: 3.5rem;
   font-size: 2rem;
   text-transform: uppercase;
-  color: #808080;
+  color: #66fcf1;
 }
 
 .signature {
@@ -645,6 +669,11 @@ body {
   bottom: 10%;
   right: -4%;
   height: 20rem;
+}
+
+.spanDiff {
+  color: #66fcf1;
+  display: inline-block;
 }
 
 .aboutMe {
@@ -695,6 +724,27 @@ body {
   transform: scale(1.02);
 }
 
+.infiScrollCont {
+  width: 25%;
+  height: 3.8rem;
+  overflow: hidden;
+}
+
+.infiScrollCont-whoAmI {
+  width: 30%;
+  display: flex;
+}
+
+.infinScrollHead {
+  margin-right: 2rem;
+  -webkit-animation: scrollText 3s infinite linear;
+          animation: scrollText 3s infinite linear;
+}
+
+.infiScrollWrapper {
+  display: flex;
+}
+
 .webGl {
   display: flex;
   justify-content: center;
@@ -730,13 +780,13 @@ body {
 }
 
 .htmlIcon {
-  top: 20%;
-  left: 20%;
+  top: 10%;
+  left: 10%;
   background-color: #ff6a0062;
 }
 
 .cssIcon {
   top: 20%;
-  right: 20%;
+  right: 10%;
   background-color: #29a9df56;
 }/*# sourceMappingURL=style.css.map */

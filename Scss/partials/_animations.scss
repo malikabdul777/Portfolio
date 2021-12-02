@@ -23,3 +23,11 @@
     transform: scale(1);
   }
 }
+@keyframes scrollText {
+  0% {
+    transform: translateX(120%);
+  }
+  100% {
+    transform: translateX(-120%);
+  }
+}

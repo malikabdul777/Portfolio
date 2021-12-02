@@ -44,3 +44,36 @@
 //   transform: scale(1.09) rotate(-4deg);
 //   background-blend-mode: lighten;
 // }
+.infiScrollCont {
+  // background-color: white;
+  width: 25%;
+  height: 3.8rem;
+  // border: 1px solid white;
+  overflow: hidden;
+}
+.infiScrollCont-whoAmI {
+  width: 30%;
+  display: flex;
+  // border: 1px solid white;
+}
+// .whoAmI::after {
+//   content: "who am i?";
+//   font-size: 1.8rem;
+//   // background-color: white;
+//   // border-radius: 1px solid white;
+//   width: 120%;
+//   height: 100%;
+//   padding: 2rem;
+//   // display: inline-block;
+//   margin: 2rem;
+//   position: absolute;
+//   top: -10%;
+//   left: 0;
+// }
+.infinScrollHead {
+  margin-right: 2rem;
+  animation: scrollText 3s infinite linear;
+}
+.infiScrollWrapper {
+  display: flex;
+}
