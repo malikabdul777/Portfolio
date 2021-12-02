@@ -46,13 +46,14 @@
 // }
 .infiScrollCont {
   // background-color: white;
-  width: 25%;
-  height: 3.8rem;
+  width: 250px;
+  height: 38px;
   // border: 1px solid white;
   overflow: hidden;
+  color: $color-primary;
 }
 .infiScrollCont-whoAmI {
-  width: 30%;
+  width: 180px;
   display: flex;
   // border: 1px solid white;
 }
@@ -71,9 +72,14 @@
 //   left: 0;
 // }
 .infinScrollHead {
-  margin-right: 2rem;
+  margin-right: 20px;
   animation: scrollText 3s infinite linear;
 }
 .infiScrollWrapper {
   display: flex;
+}
+.abtMeP {
+  line-height: 30px;
+  font-size: 1.7rem;
+  text-align: justify;
 }

@@ -1,9 +1,14 @@
+:root {
+  --color-primary: #e89f4c;
+}
+
 // $backgroundColor: rgb(27, 27, 27);
 $backgroundColor: black;
-$color-primary: #66fcf1;
+// $color-primary: #66fcf1;
+$color-primary: var(--color-primary);
 $text-color: white;
 $text-secondary: #808080;
-$cursorColor: #66fcf1;
+$cursorColor: #da6217;
 
 $fontWeight: (
   "regulare": 400,

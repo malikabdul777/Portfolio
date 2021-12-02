@@ -17,13 +17,9 @@
     ></script>
     <script defer src="./libs/vanilla-tilt.min.js"></script>
     <!-- <script defer src="./libs/simpleParallax.js"></script> -->
-    <script
-      defer
-      src="https://cdnjs.cloudflare.com/ajax/libs/parallax/3.1.0/parallax.min.js"
-    ></script>
-    <script defer src="script.js"></script>
+    <script defer type="module" src="script.js"></script>
   </head>
-  <body id="my-scrollbar">
+  <body>
     <div class="cursor-circle"></div>
     <div class="cursor"></div>
     <div class="cursor-click"></div>
@@ -32,38 +28,39 @@
         <img class="signature" src="./images/signature.svg" alt="name of dev" />
         <p class="signatureDesig">Full Stack Web Developer.</p>
       </div>
-      <section class="hero-whole-wrapper section">
-        <div class="circle"></div>
-        <div class="Hero-wrapper">
-          <nav class="nav-bar">
-            <ul class="link-list">
-              <div class="whiteMenu"></div>
-              <div class="firstSet navSet">
-                <li class="links">
-                  <a href="#" class="link">HOME</a>
-                </li>
-                <li class="links">
-                  <a href="#" class="link">WORK</a>
-                </li>
+      <div class="everySectionWrapper">
+        <section class="hero-whole-wrapper section">
+          <div class="circle"></div>
+          <div class="Hero-wrapper">
+            <nav class="nav-bar">
+              <ul class="link-list">
+                <div class="whiteMenu"></div>
+                <div class="firstSet navSet">
+                  <li class="links">
+                    <a href="#" class="link">HOME</a>
+                  </li>
+                  <li class="links">
+                    <a href="#" class="link">WORK</a>
+                  </li>
+                </div>
+                <img src="images/logo.svg" alt="logo" class="logo" />
+                <div class="secondSet navSet">
+                  <li class="links"><a href="#" class="link">SKILLS</a></li>
+                  <li class="links"><a href="#" class="link">CONTACT</a></li>
+                </div>
+              </ul>
+              <div class="burger">
+                <span class="spanNav span1"></span>
+                <span class="spanNav span2"></span>
+                <span class="spanNav span3"></span>
               </div>
-              <img src="images/logo.svg" alt="logo" class="logo" />
-              <div class="secondSet navSet">
-                <li class="links"><a href="#" class="link">SKILLS</a></li>
-                <li class="links"><a href="#" class="link">CONTACT</a></li>
-              </div>
-            </ul>
-            <div class="burger">
-              <span class="spanNav span1"></span>
-              <span class="spanNav span2"></span>
-              <span class="spanNav span3"></span>
-            </div>
-          </nav>
-          <img src="./images/logo.svg" alt="logo" class="mob-logo" />
-        </div>
-        <div class="mainHead">
-          <div class="boxHead">
-            <!-- <p></p> -->
-            <!-- <div class="iconMainCont htmlIcon">
+            </nav>
+            <img src="./images/logo.svg" alt="logo" class="mob-logo" />
+          </div>
+          <div class="mainHead">
+            <div class="boxHead">
+              <!-- <p></p> -->
+              <!-- <div class="iconMainCont htmlIcon">
               <img
                 class="hoverIcon"
                 src="./images/icons/html.png"
@@ -77,81 +74,73 @@
                 alt="html icon"
               />
             </div> -->
-            <p class="freelanceTit">--- Available for Freelance Work</p>
-            <h1 class="mainHeadEl">
-              <span class="revelaHead">I'm Freelance Developer</span>
-            </h1>
-            <h1 class="mainHeadEl">
-              <span class="revelaHead"
-                >Taking Your
-                <p class="spanDiff">Imaginations</p>
-              </span>
-            </h1>
-            <h1 class="mainHeadEl">
-              <span class="revelaHead">Online</span>
-            </h1>
-            <!-- <p class="introp">I design and build ultimate things for web.</p> -->
-          </div>
-          <div class="textcircl-cont">
-            <img class="textCircle" src="./images/circleText.svg" alt="" />
-          </div>
-        </div>
-      </section>
-      <section class="aboutMe section">
-        <h2 class="ghostText gtAbout">About Me</h2>
-        <div class="cont-aboutMe">
-          <div>
-            <div class="infiScrollCont infiScrollCont-whoAmI">
-              <h2 class="infinScrollHead whoAmI">Who am I?</h2>
-              <!-- <h2 class="infinScrollHead whoAmI">Who am I?</h2> -->
+              <p class="freelanceTit">--- Available for Freelance Work</p>
+              <h1 class="mainHeadEl">
+                <span class="revelaHead">I'm Web Developer</span>
+              </h1>
+              <h1 class="mainHeadEl">
+                <span class="revelaHead"
+                  >Taking Your
+                  <p class="spanDiff">Imaginations</p>
+                </span>
+              </h1>
+              <h1 class="mainHeadEl">
+                <span class="revelaHead">Online</span>
+              </h1>
+              <!-- <p class="introp">I design and build ultimate things for web.</p> -->
+            </div>
+            <div class="textcircl-cont">
+              <img class="textCircle" src="./images/circleText.svg" alt="" />
             </div>
           </div>
-          <!-- <div class="infiScrollCont infiScrollCont-whoAmI">
+        </section>
+        <section class="aboutMe section">
+          <h2 class="ghostText gtAbout">About Me</h2>
+          <div class="cont-aboutMe">
+            <div>
+              <div class="infiScrollCont infiScrollCont-whoAmI">
+                <h2 class="infinScrollHead whoAmI">Who am I?</h2>
+                <!-- <h2 class="infinScrollHead whoAmI">Who am I?</h2> -->
+              </div>
+            </div>
+            <!-- <div class="infiScrollCont infiScrollCont-whoAmI">
             <h2 class="infinScrollHead whoAmI">Who am I?</h2>
           </div> -->
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum iure
-            itaque sint, adipisci, veritatis earum quam ratione minus similique
-            vitae placeat. Numquam id commodi obcaecati ea asperiores?
-            Excepturiii, consectetur quod?
-          </p>
-        </div>
-        <div
-          class="Contimg1"
-          data-tilt
-          data-tilt-scale="1.03"
-          data-tilt-glare
-          data-tilt-max-glare="0.4"
-        >
-          <img
-            class="myImg Textureimg"
-            src="./images/Abdul Malik-min.jpeg"
-            alt="Abdul Malik"
-          />
-        </div>
-      </section>
-      <section class="section">
-        <div></div>
-      </section>
-
-      <!-- <section class="webGl section" id="webGl">
-        <div></div>
-      </section> -->
+            <p class="abtMeP">
+              Hello! I'm Abdul Malik, I specialize in creating unique designs
+              and helping clients turn their imaginations into beautiful digital
+              presence by creating eye-catching web designs and developing them.
+              I help companies to design digital products and turn ideas into a
+              functional and delightful experience. I’m focusing on working on
+              the interface and digital design – mainly building products,
+              branding and websites, to create great digital presence.
+            </p>
+          </div>
+          <div
+            class="Contimg1"
+            data-tilt
+            data-tilt-scale="1.03"
+            data-tilt-glare
+            data-tilt-max-glare="0.4"
+          >
+            <img
+              class="myImg Textureimg"
+              src="./images/Abdul Malik-min.jpeg"
+              alt="Abdul Malik"
+            />
+          </div>
+        </section>
+        <section class="iUseSec section">
+          <h2 class="ghostText gtIUse">I Use</h2>
+          <div>
+            <div>
+              <div class="infiScrollCont infiScrollCont-iUse">
+                <h2 class="infinScrollHead">Technologies I Use</h2>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
     </div>
-    <!-- <svg>
-      <filter id="noise" x="0%" y="0%" width="100%" height="100%">
-        <feTurbulence
-          baseFrequency="0.00 0.00"
-          result="NOISE"
-          numOctaves="1"
-          id="turbulence"
-        />
-        <feDisplacementMap
-          in="SourceGraphic"
-          in2="NOISE"
-          scale="20"
-        ></feDisplacementMap>
-      </filter>
-    </svg> -->
   </body>
 </html>

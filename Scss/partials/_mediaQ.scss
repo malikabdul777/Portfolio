@@ -156,9 +156,7 @@
   html {
     font-size: 40%;
   }
-  // .mainHead {
-  //   // height: 70vh;
-  // }
+
   .hero-whole-wrapper {
     .circle {
       left: -70%;
@@ -210,12 +208,9 @@
       object-fit: contain;
     }
   }
+  .mainHead {
+    .boxHead {
+      padding-left: 5rem;
+    }
+  }
 }
-// @media screen and (max-width: 400px) {
-//   html {
-//     font-size: 40%;
-//   }
-//   .section {
-//     heigth: 80vh;
-//   }
-// }

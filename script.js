@@ -18,6 +18,47 @@ const iconMainCont = document.querySelectorAll(".iconMainCont");
 
 gsap.registerPlugin(ScrollTrigger);
 
+let asscentColorsArray = ["#e89f4c", "#66fcf1", "#F2DB14", "#F27B70"];
+let prevAsscentColor =
+  localStorage.getItem("asscentColor") === null
+    ? null
+    : localStorage.getItem("asscentColor");
+
+let randAsscent =
+  asscentColorsArray[Math.floor(Math.random() * asscentColorsArray.length)];
+
+let newAsscent = "";
+
+// console.log(asscentColorsArray.findIndex((el) => el == `${randAsscent}`));
+(function () {
+  let val = null;
+  if (randAsscent !== prevAsscentColor) {
+    val = randAsscent;
+  } else {
+    let currInd = asscentColorsArray.findIndex((el) => el == `${randAsscent}`);
+    // console.log(currInd);
+    if (asscentColorsArray[currInd + 1] != undefined) {
+      val = asscentColorsArray[currInd + 1];
+    } else {
+      val = asscentColorsArray[currInd - 1];
+    }
+  }
+  newAsscent = val;
+})();
+// newAsscentfunction();
+
+//  = newAsscentFunction();
+
+if (prevAsscentColor == newAsscent) {
+  console.log("caught");
+}
+
+localStorage.setItem("asscentColor", newAsscent);
+
+// console.log(newAsscent);
+const root = document.documentElement;
+root.style.setProperty("--color-primary", newAsscent);
+
 window.mobileAndTabletCheck = function () {
   let check = false;
   (function (a) {
@@ -112,45 +153,90 @@ revelaHead.forEach((el) => {
   });
 });
 
+////////
+// left: 37, up: 38, right: 39, down: 40,
+// spacebar: 32, pageup: 33, pagedown: 34, end: 35, home: 36
+var keys = { 37: 1, 38: 1, 39: 1, 40: 1 };
+
+function preventDefault(e) {
+  e.preventDefault();
+}
+
+function preventDefaultForScrollKeys(e) {
+  if (keys[e.keyCode]) {
+    preventDefault(e);
+    return false;
+  }
+}
+
+// modern Chrome requires { passive: false } when adding event
+var supportsPassive = false;
+try {
+  window.addEventListener(
+    "test",
+    null,
+    Object.defineProperty({}, "passive", {
+      get: function () {
+        supportsPassive = true;
+      },
+    })
+  );
+} catch (e) {}
+
+var wheelOpt = supportsPassive ? { passive: false } : false;
+var wheelEvent =
+  "onwheel" in document.createElement("div") ? "wheel" : "mousewheel";
+
+// call this to Disable
+function disableScroll() {
+  window.addEventListener("DOMMouseScroll", preventDefault, false); // older FF
+  window.addEventListener(wheelEvent, preventDefault, wheelOpt); // modern desktop
+  window.addEventListener("touchmove", preventDefault, wheelOpt); // mobile
+  window.addEventListener("keydown", preventDefaultForScrollKeys, false);
+}
+
+// call this to Enable
+function enableScroll() {
+  window.removeEventListener("DOMMouseScroll", preventDefault, false);
+  window.removeEventListener(wheelEvent, preventDefault, wheelOpt);
+  window.removeEventListener("touchmove", preventDefault, wheelOpt);
+  window.removeEventListener("keydown", preventDefaultForScrollKeys, false);
+}
+
+////////
 let t1 = gsap.timeline();
-
+let t2 = gsap.timeline();
+t1.addPause(2);
 /////////////////////////////////////
-
-t1.from(".signature", {
+disableScroll();
+t2.from(".signature", {
   y: "-100%",
   opacity: 0,
   delay: 0.3,
   duration: 0.5,
 });
-t1.from(".signatureDesig", {
+t2.from(".signatureDesig", {
   // y: "100%",
   opacity: 0,
   duration: 0.8,
 });
-t1.to(".firstLayer", {
+t2.to(".firstLayer", {
   y: "100%",
   duration: 1,
   delay: 0.8,
   display: "none",
+  // onComplete: () =>
+  //   document
+  //     .querySelector(".everySectionWrapper")
+  //     .classList.remove("is-loading"),
+});
+
+t2.eventCallback("onComplete", function () {
+  enableScroll();
+  t1.play();
 });
 const firstLayer = document.querySelector(".firstLayer");
 
-// t1.from(
-//   ".nav-bar",
-//   {
-//     y: -20,
-//     opacity: 0,
-//   },
-//   "-=0.5"
-// );
-// t1.from(
-//   ".mob-logo",
-//   {
-//     y: -20,
-//     opacity: 0,
-//   },
-//   "-=0.6"
-// );
 t1.to(".revelaHead", { y: "0%", duration: 0.7, stagger: 0.2 });
 t1.from(".freelanceTit", {
   y: 20,
@@ -272,7 +358,7 @@ gsap.to(".textCircle", {
   repeatDelay: 0,
   delay: 0,
 });
-gsap.from(".ghostText", {
+gsap.from(".gtAbout", {
   x: "-100%",
   opacity: 0.5,
   duration: 1,
@@ -297,190 +383,39 @@ gsap.from(".Contimg1", {
     scrub: 1,
   },
 });
-/// parallex
+gsap.to(".boxHead", {
+  y: "30%",
+  duration: 0.1,
+  ease: "power3.out",
+  scrollTrigger: {
+    trigger: ".aboutMe",
+    // markers: true,
+    start: "top 85%",
+    end: "bottom 98%",
+    scrub: 1,
+  },
+});
 
-// var scene = document.getElementById("scene");
-// var parallaxInstance = new Parallax(scene);
-
-// var image = document.getElementsByClassName("mainHeadEl");
-// new simpleParallax(image);
-// var img = document.querySelector(".hero-whole-wrapper");
-// new simpleParallax(img);
-
-///// smooth scroll
-
-// import Scrollbar from "smooth-scrollbar";
-// Scrollbar.init(document.querySelector("#my-scrollbar"));
-
-// class Smooth {
-//   constructor() {
-//     this.bindAll();
-
-//     this.ui = {
-//       el: document.querySelector(".js-scroll"),
-//       sections: document.querySelectorAll(".js-scroll-section"),
-//       heightEl: null,
-//     };
-
-//     this.state = {
-//       total: this.ui.sections.length,
-//       scroll: {
-//         target: 0,
-//         current: 0,
-//         ease: 0.125,
-//       },
-//       bounds: {
-//         height: window.innerHeight,
-//         scrollHeight: 0,
-//         threshold: 100,
-//       },
-//       isResizing: false,
-//     };
-
-//     this.sections = null;
-
-//     this.init();
-//   }
-
-//   bindAll() {
-//     ["onScroll", "onResize", "run"].forEach(
-//       (fn) => (this[fn] = this[fn].bind(this))
-//     );
-//   }
-
-//   run() {
-//     const { scroll } = this.state;
-
-//     scroll.current += (scroll.target - scroll.current) * scroll.ease;
-//     if (scroll.current < 0.1) scroll.current = 0;
-
-//     this.transformSections();
-
-//     requestAnimationFrame(this.run);
-//   }
-
-//   transformSections() {
-//     const { total, isResizing, scroll } = this.state;
-//     const translate = `translate3d(0, ${-scroll.current}px, 0)`;
-
-//     for (let i = 0; i < total; i++) {
-//       const data = this.sections[i];
-//       const { el, bounds } = data;
-//       const isVisible = this.isVisible(bounds);
-
-//       if (isVisible || isResizing) {
-//         Object.assign(data, { out: false });
-//         el.style.transform = translate;
-//       } else if (!data.out) {
-//         Object.assign(data, { out: true });
-//         el.style.transform = translate;
-//       }
-//     }
-//   }
-
-//   isVisible(bounds) {
-//     const { height, threshold } = this.state.bounds;
-//     const { current } = this.state.scroll;
-//     const { top, bottom } = bounds;
-
-//     const start = top - current;
-//     const end = bottom - current;
-//     const isVisible = start < threshold + height && end > -threshold;
-
-//     return isVisible;
-//   }
-
-//   getSections() {
-//     if (!this.ui.sections) return;
-//     this.sections = [];
-
-//     this.ui.sections.forEach((el) => {
-//       el.style.transform = "translate3d(0, 0, 0)";
-
-//       const { top, bottom } = el.getBoundingClientRect();
-//       const state = {
-//         el,
-//         bounds: {
-//           top,
-//           bottom,
-//         },
-//         out: true,
-//       };
-
-//       this.sections.push(state);
-//     });
-//   }
-
-//   setInitial() {
-//     const { el } = this.ui;
-
-//     Object.assign(el.style, {
-//       position: "fixed",
-//       top: 0,
-//       left: 0,
-//       width: "100%",
-//       height: "100%",
-//       overflow: "hidden",
-//     });
-
-//     document.body.classList.add("is-smooth-scroll");
-//   }
-
-//   setFakeHeight() {
-//     const { total, bounds } = this.state;
-
-//     if (!this.ui.heightEl) {
-//       this.ui.heightEl = document.createElement("div");
-//       this.ui.heightEl.classList.add("js-fake-scroll");
-//       document.body.appendChild(this.ui.heightEl);
-//     }
-
-//     const { bottom } = this.ui.sections[total - 1].getBoundingClientRect();
-//     bounds.scrollHeight = bottom;
-
-//     this.ui.heightEl.style.height = `${bottom}px`;
-//   }
-
-//   onScroll() {
-//     const { scroll } = this.state;
-
-//     scroll.target = window.scrollY;
-//   }
-
-//   onResize() {
-//     this.state.isResizing = true;
-
-//     if (this.sections) {
-//       this.sections.forEach(({ el, bounds }) => {
-//         el.style.transform = "translate3d(0, 0, 0)";
-
-//         const { top, bottom } = el.getBoundingClientRect();
-
-//         bounds.top = top;
-//         bounds.bottom = bottom;
-//       });
-
-//       this.transformSections();
-//     }
-
-//     this.setFakeHeight();
-
-//     this.state.isResizing = false;
-//   }
-
-//   addListeners() {
-//     window.addEventListener("scroll", this.onScroll);
-//     window.addEventListener("resize", this.onResize);
-//   }
-
-//   init() {
-//     this.setInitial();
-//     this.setFakeHeight();
-//     this.getSections();
-//     this.addListeners();
-
-//     requestAnimationFrame(this.run);
-//   }
-// }
-
-// new Smooth();
+gsap.from(".gtIUse", {
+  x: "-100%",
+  opacity: 0.5,
+  scrollTrigger: {
+    trigger: ".iUseSec",
+    // markers: true,
+    start: "top 55%",
+    end: "bottom 98%",
+    scrub: 1,
+  },
+});
+gsap.to(".cont-aboutMe", {
+  y: "38%",
+  duration: 0.1,
+  ease: "power3.out",
+  scrollTrigger: {
+    trigger: ".iUseSec",
+    // markers: true,
+    start: "top 85%",
+    end: "bottom 98%",
+    scrub: 1,
+  },
+});

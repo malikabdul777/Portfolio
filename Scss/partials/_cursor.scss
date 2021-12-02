@@ -18,7 +18,7 @@
   z-index: 99;
   height: 0.6rem;
   width: 0.6rem;
-  background-color: $cursorColor;
+  background-color: $color-primary;
   border-radius: 50%;
   position: absolute;
   mix-blend-mode: difference;
@@ -27,17 +27,17 @@
 }
 .shrink {
   animation: realCursorClickAnim 0.5s infinite;
-  border: 0.1rem solid $cursorColor;
+  border: 0.1rem solid $color-primary;
 }
 .expand {
   animation: cursorClickAnim 0.5s infinite;
-  border: 0.1rem solid $cursorColor;
+  border: 0.1rem solid $color-primary;
 }
 .cursor-click {
   z-index: 90;
   width: 2.4rem;
   height: 2.4rem;
-  border: 0.1rem solid $cursorColor;
+  border: 0.1rem solid $color-primary;
   border-radius: 50%;
   position: absolute;
   opacity: 0.9;

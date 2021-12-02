@@ -1,5 +1,5 @@
 @import "./variables";
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Poppins:wght@300;400;500;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Poppins:wght@300;400;500;600&family=Syncopate:wght@400;700&display=swap");
 
 *,
 *::after,
@@ -61,6 +61,10 @@ body {
   min-height: 100vh;
   overflow: hidden !important;
 }
+// .is-loading .everySectionWrapper {
+//   display: none !important;
+// }
+
 // .web-wrapper {
 //   scroll-snap-type: y mandatory;
 //   overflow: scroll;

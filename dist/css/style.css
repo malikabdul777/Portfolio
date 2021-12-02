@@ -1,4 +1,8 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Poppins:wght@300;400;500;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Poppins:wght@300;400;500;600&family=Syncopate:wght@400;700&display=swap");
+:root {
+  --color-primary: #e89f4c;
+}
+
 *,
 *::after,
 *::before {
@@ -74,6 +78,10 @@ body {
 
 .inToView {
   transform: translateX(0) !important;
+}
+
+:root {
+  --color-primary: #e89f4c;
 }
 
 @-webkit-keyframes cursorClickAnim {
@@ -174,7 +182,7 @@ body {
   }
 
   .whiteMenu {
-    background-color: #66fcf1;
+    background-color: var(--color-primary);
     position: fixed;
     max-width: 330px;
     min-width: 320px;
@@ -333,12 +341,20 @@ body {
     -o-object-fit: contain;
        object-fit: contain;
   }
+
+  .mainHead .boxHead {
+    padding-left: 5rem;
+  }
 }
+:root {
+  --color-primary: #e89f4c;
+}
+
 .cursor-circle {
   z-index: 90;
   width: 2.4rem;
   height: 2.4rem;
-  border: 0.1rem solid #66fcf1;
+  border: 0.1rem solid #da6217;
   border-radius: 50%;
   position: absolute;
   opacity: 1;
@@ -352,7 +368,7 @@ body {
   z-index: 99;
   height: 0.6rem;
   width: 0.6rem;
-  background-color: #66fcf1;
+  background-color: var(--color-primary);
   border-radius: 50%;
   position: absolute;
   mix-blend-mode: difference;
@@ -363,20 +379,20 @@ body {
 .shrink {
   -webkit-animation: realCursorClickAnim 0.5s infinite;
           animation: realCursorClickAnim 0.5s infinite;
-  border: 0.1rem solid #66fcf1;
+  border: 0.1rem solid var(--color-primary);
 }
 
 .expand {
   -webkit-animation: cursorClickAnim 0.5s infinite;
           animation: cursorClickAnim 0.5s infinite;
-  border: 0.1rem solid #66fcf1;
+  border: 0.1rem solid var(--color-primary);
 }
 
 .cursor-click {
   z-index: 90;
   width: 2.4rem;
   height: 2.4rem;
-  border: 0.1rem solid #66fcf1;
+  border: 0.1rem solid var(--color-primary);
   border-radius: 50%;
   position: absolute;
   opacity: 0.9;
@@ -453,7 +469,7 @@ body {
   letter-spacing: 0.1rem;
 }
 .link-list .link:hover {
-  color: #66fcf1;
+  color: var(--color-primary);
 }
 .link-list .link::before {
   content: "";
@@ -472,7 +488,7 @@ body {
   bottom: -6px;
   left: 0;
   height: 0.2rem;
-  background-color: #66fcf1;
+  background-color: var(--color-primary);
   width: 0;
   transition: all 0.5s linear;
   transition-delay: 0.3s;
@@ -572,7 +588,7 @@ body {
   align-items: center;
   flex-direction: column;
   height: 90vh;
-  font-family: "Montserrat", sans-serif;
+  font-family: "Playfair Display", serif;
   letter-spacing: 3px;
   font-size: 4.5rem;
   margin-top: -3rem;
@@ -581,7 +597,8 @@ body {
 }
 
 .freelanceTit {
-  font-size: 1.8rem;
+  font-family: "Poppins", sans-serif;
+  font-size: 1.4rem;
   color: #808080;
   margin: 0 0 2rem 3rem;
 }
@@ -599,7 +616,7 @@ body {
   left: -20%;
   opacity: 0.6;
   border-radius: 50%;
-  border: 1px solid #66fcf1;
+  border: 1px solid var(--color-primary);
   z-index: -1;
 }
 
@@ -634,7 +651,7 @@ body {
   top: 0;
   left: 0;
   z-index: 90;
-  border-top: 0.1rem solid #66fcf1;
+  border-top: 0.1rem solid var(--color-primary);
   -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
           clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
 }
@@ -656,7 +673,7 @@ body {
   margin-top: 3.5rem;
   font-size: 2rem;
   text-transform: uppercase;
-  color: #66fcf1;
+  color: var(--color-primary);
 }
 
 .signature {
@@ -672,7 +689,7 @@ body {
 }
 
 .spanDiff {
-  color: #66fcf1;
+  color: var(--color-primary);
   display: inline-block;
 }
 
@@ -725,24 +742,31 @@ body {
 }
 
 .infiScrollCont {
-  width: 25%;
-  height: 3.8rem;
+  width: 250px;
+  height: 38px;
   overflow: hidden;
+  color: var(--color-primary);
 }
 
 .infiScrollCont-whoAmI {
-  width: 30%;
+  width: 180px;
   display: flex;
 }
 
 .infinScrollHead {
-  margin-right: 2rem;
+  margin-right: 20px;
   -webkit-animation: scrollText 3s infinite linear;
           animation: scrollText 3s infinite linear;
 }
 
 .infiScrollWrapper {
   display: flex;
+}
+
+.abtMeP {
+  line-height: 30px;
+  font-size: 1.7rem;
+  text-align: justify;
 }
 
 .webGl {
@@ -789,4 +813,26 @@ body {
   top: 20%;
   right: 10%;
   background-color: #29a9df56;
+}
+
+.iUseSec {
+  width: 100%;
+  margin-top: 0rem;
+  min-height: 90vh;
+  max-height: 100vh;
+  padding: 1rem 15rem;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: top;
+}
+
+.infiScrollCont-iUse {
+  width: 260px;
+}
+
+.infiScrollCont-iUse {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }/*# sourceMappingURL=style.css.map */
