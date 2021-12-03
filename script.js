@@ -13,6 +13,7 @@ const whiteMenu = document.querySelector(".whiteMenu");
 const logo = document.querySelector(".logo");
 const wavyClass = document.querySelectorAll(".Textureimg");
 const filterEl = document.querySelector("#turbulence");
+const contImg = document.querySelector(".Contimg1");
 
 const iconMainCont = document.querySelectorAll(".iconMainCont");
 
@@ -24,7 +25,7 @@ let asscentColorsArray = [
   "#66fcf1",
   "#F2DB14",
   "#F27B70",
-  // "#8a2be2",
+  "#8a2be2",
 ];
 let prevAsscentColor =
   localStorage.getItem("asscentColor") === null
@@ -90,12 +91,88 @@ window.mobileAndTabletCheck = function () {
   })(navigator.userAgent || navigator.vendor || window.opera);
   return check;
 };
-if (mobileAndTabletCheck()) {
+
+//////// page Reload Local Storage
+let prevTimeStamp = null;
+let currTimeStamp = null;
+
+let shouldReloadSmall = null;
+if (localStorage.getItem("shouldReloadSmall") == null) {
+  if (window.innerWidth > 450) {
+    localStorage.setItem("shouldReloadSmall", true);
+  }
+}
+
+let shouldReloadLarge = null;
+if (localStorage.getItem("shouldReloadLarge") == null) {
+  if (window.innerWidth < 450) {
+    localStorage.setItem("shouldReloadLarge", true);
+  }
+}
+
+window.onresize = function (e) {
+  prevTimeStamp = e.timeStamp;
+  const timer = setInterval(() => {
+    currTimeStamp = e.timeStamp;
+    if (prevTimeStamp == currTimeStamp) {
+      if (
+        e.srcElement.innerWidth > 451 &&
+        JSON.parse(localStorage.getItem("shouldReloadLarge"))
+      ) {
+        localStorage.setItem("shouldReloadSmall", true);
+        localStorage.setItem("shouldReloadLarge", false);
+        location.reload();
+      }
+      if (
+        e.srcElement.innerWidth <= 450 &&
+        JSON.parse(localStorage.getItem("shouldReloadSmall"))
+      ) {
+        localStorage.setItem("shouldReloadSmall", false);
+        localStorage.setItem("shouldReloadLarge", true);
+        location.reload();
+      }
+    }
+  }, 500);
+  // if (e.srcElement.innerWidth <= 450) {
+
+  // }
+};
+
+// window.onresize = function (e) {
+//   setInterval(() => {
+//     location.reload();
+//   }, 1500);
+// };
+let mobForCursor = window.matchMedia("(max-width: 450px)");
+let myImgNodeList = contImg.attributes;
+
+if (mobileAndTabletCheck() || mobForCursor.matches) {
   cursorCircle.classList.add("hide");
   cursorClick.classList.add("hide");
   cursor.classList.add("hide");
-}
 
+  for (const [_, value] of Object.entries(myImgNodeList)) {
+    // console.log(value);
+    // console.log(value.nodeName == "class");
+    if (value.nodeName !== "class" && value.nodeName !== "style") {
+      contImg.removeAttribute(value.nodeName);
+    }
+  }
+}
+// let myImgNodeList = contImg.attributes;
+// // myImgNodeList.forEach((el) => {
+// //   console.log(el);
+// // });
+
+// for (const [_, value] of Object.entries(myImgNodeList)) {
+//   // console.log(value);
+//   // console.log(value.nodeName == "class");
+//   if (value.nodeName !== "class" && value.nodeName !== "style") {
+//     contImg.removeAttribute(value.nodeName);
+//   }
+// }
+
+// console.log(contImg.attributes);
 document.addEventListener("mousemove", (e) => {
   cursorCircle.setAttribute("style", `top: ${e.pageY}px; left: ${e.pageX}px`);
   cursorClick.setAttribute("style", `top: ${e.pageY}px; left: ${e.pageX}px`);

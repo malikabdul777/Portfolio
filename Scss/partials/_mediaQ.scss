@@ -175,22 +175,22 @@
   .nav-bar {
     padding: 5rem;
   }
-  .aboutMe {
-    .Contimg1 {
-      display: none;
-    }
-    .mobMyImg {
-      display: block;
-      margin-top: -3rem;
-      height: 55rem;
-    }
-  }
+  // .aboutMe {
+  //   .Contimg1 {
+  //     display: none;
+  //   }
+  //   .mobMyImg {
+  //     display: block;
+  //     margin-top: -3rem;
+  //     height: 55rem;
+  //   }
+  // }
   .textCircle {
     position: absolute;
     bottom: -25%;
     right: 10%;
-    min-height: 38rem;
-    max-height: 40rem;
+    min-height: 28rem;
+    max-height: 30rem;
   }
   .mainHead {
     .boxHead {
@@ -223,6 +223,11 @@
   .mainHead {
     .boxHead {
       padding-left: 5rem;
+    }
+  }
+  .iUseSec {
+    .infiScrollCont-iUse {
+      width: 270px;
     }
   }
 }

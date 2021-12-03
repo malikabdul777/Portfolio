@@ -9,9 +9,9 @@
   justify-content: space-around;
   align-items: center;
 }
-.mobMyImg {
-  display: none;
-}
+// .mobMyImg {
+//   display: none;
+// }
 
 .ghostText {
   position: absolute;
@@ -63,6 +63,7 @@
   // border: 1px solid white;
   overflow: hidden;
   color: $color-primary;
+  font-size: 2.56rem;
 }
 .infiScrollCont-whoAmI {
   width: 180px;
