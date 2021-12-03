@@ -2,13 +2,17 @@
   width: 100%;
   margin-top: -3rem;
   min-height: 90vh;
-  max-height: 100vh;
+  // max-height: 100vh;
   padding: 15rem;
   position: relative;
   display: flex;
   justify-content: space-around;
   align-items: center;
 }
+.mobMyImg {
+  display: none;
+}
+
 .ghostText {
   position: absolute;
   top: 20%;
@@ -25,6 +29,13 @@
   }
 }
 .Contimg1 {
+  display: block;
+  overflow: hidden;
+  transition: border-radius 0.2s linear;
+  border-radius: 1.5rem;
+}
+.mobMyImg {
+  display: none;
   overflow: hidden;
   transition: border-radius 0.2s linear;
   border-radius: 1.5rem;
@@ -32,9 +43,10 @@
 .Contimg1:hover {
   border-radius: 1.5rem;
 }
-.js-tilt-glare {
+.mobMyImg:hover {
   border-radius: 1.5rem;
 }
+
 .myImg {
   height: 40rem;
   transform: scale(1.02);

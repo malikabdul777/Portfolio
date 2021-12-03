@@ -80,6 +80,10 @@ body {
   transform: translateX(0) !important;
 }
 
+.js-tilt-glare {
+  border-radius: 1.5rem;
+}
+
 :root {
   --color-primary: #e89f4c;
 }
@@ -154,6 +158,10 @@ body {
 
   .nav-bar {
     padding: 15rem;
+  }
+
+  .mainHead .boxHead {
+    padding-left: 5rem;
   }
 
   .link:hover {
@@ -305,7 +313,12 @@ body {
   }
 
   .aboutMe .Contimg1 {
+    display: none;
+  }
+  .aboutMe .mobMyImg {
+    display: block;
     margin-top: -3rem;
+    height: 55rem;
   }
 
   .textCircle {
@@ -336,6 +349,7 @@ body {
   }
   .cont-aboutMe p {
     font-size: 2rem;
+    line-height: 26px;
   }
   .cont-aboutMe .myImg {
     width: 80%;
@@ -698,12 +712,15 @@ body {
   width: 100%;
   margin-top: -3rem;
   min-height: 90vh;
-  max-height: 100vh;
   padding: 15rem;
   position: relative;
   display: flex;
   justify-content: space-around;
   align-items: center;
+}
+
+.mobMyImg {
+  display: none;
 }
 
 .ghostText {
@@ -724,6 +741,14 @@ body {
 }
 
 .Contimg1 {
+  display: block;
+  overflow: hidden;
+  transition: border-radius 0.2s linear;
+  border-radius: 1.5rem;
+}
+
+.mobMyImg {
+  display: none;
   overflow: hidden;
   transition: border-radius 0.2s linear;
   border-radius: 1.5rem;
@@ -733,7 +758,7 @@ body {
   border-radius: 1.5rem;
 }
 
-.js-tilt-glare {
+.mobMyImg:hover {
   border-radius: 1.5rem;
 }
 

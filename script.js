@@ -18,7 +18,14 @@ const iconMainCont = document.querySelectorAll(".iconMainCont");
 
 gsap.registerPlugin(ScrollTrigger);
 
-let asscentColorsArray = ["#e89f4c", "#66fcf1", "#F2DB14", "#F27B70"];
+//// Asscent Color
+let asscentColorsArray = [
+  "#e89f4c",
+  "#66fcf1",
+  "#F2DB14",
+  "#F27B70",
+  // "#8a2be2",
+];
 let prevAsscentColor =
   localStorage.getItem("asscentColor") === null
     ? null
@@ -45,9 +52,6 @@ let newAsscent = "";
   }
   newAsscent = val;
 })();
-// newAsscentfunction();
-
-//  = newAsscentFunction();
 
 if (prevAsscentColor == newAsscent) {
   console.log("caught");

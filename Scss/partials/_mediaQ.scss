@@ -12,6 +12,11 @@
   .nav-bar {
     padding: 15rem;
   }
+  .mainHead {
+    .boxHead {
+      padding-left: 5rem;
+    }
+  }
   .link {
     &:hover {
       transform: scale(1.06);
@@ -172,7 +177,12 @@
   }
   .aboutMe {
     .Contimg1 {
+      display: none;
+    }
+    .mobMyImg {
+      display: block;
       margin-top: -3rem;
+      height: 55rem;
     }
   }
   .textCircle {
@@ -187,7 +197,6 @@
       margin-top: -20rem;
     }
   }
-
   .aboutMe {
     .myImg {
       height: 60rem;
@@ -204,6 +213,7 @@
     }
     p {
       font-size: 2rem;
+      line-height: 26px;
     }
     .myImg {
       width: 80%;
