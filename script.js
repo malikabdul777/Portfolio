@@ -23,9 +23,10 @@ gsap.registerPlugin(ScrollTrigger);
 let asscentColorsArray = [
   "#e89f4c",
   "#66fcf1",
-  "#F2DB14",
+  // "#F2DB14",
+  "#F2CC00",
   "#F27B70",
-  "#8a2be2",
+  // "#8a2be2",
 ];
 let prevAsscentColor =
   localStorage.getItem("asscentColor") === null
@@ -145,19 +146,16 @@ window.onresize = function (e) {
 // };
 let mobForCursor = window.matchMedia("(max-width: 450px)");
 let myImgNodeList = contImg.attributes;
-
+// console.log(mobForCursor.matches);
+// && value.nodeName !== "style"
 if (mobileAndTabletCheck() || mobForCursor.matches) {
   cursorCircle.classList.add("hide");
   cursorClick.classList.add("hide");
   cursor.classList.add("hide");
 
-  for (const [_, value] of Object.entries(myImgNodeList)) {
-    // console.log(value);
-    // console.log(value.nodeName == "class");
-    if (value.nodeName !== "class" && value.nodeName !== "style") {
-      contImg.removeAttribute(value.nodeName);
-    }
-  }
+  contImg.vanillaTilt.destroy();
+  // VanillaTilt.init(contImg);
+  // console.log(myImgNodeList);
 }
 // let myImgNodeList = contImg.attributes;
 // // myImgNodeList.forEach((el) => {
@@ -295,35 +293,37 @@ function enableScroll() {
 ///////////
 let t1 = gsap.timeline();
 let t2 = gsap.timeline();
-t1.addPause(2);
-/////////////////////////////////////
-disableScroll();
-t2.from(".signature", {
-  y: "-100%",
-  opacity: 0,
-  delay: 0.3,
-  duration: 0.5,
-});
-t2.from(".signatureDesig", {
-  // y: "100%",
-  opacity: 0,
-  duration: 0.8,
-});
-t2.to(".firstLayer", {
-  y: "100%",
-  duration: 1,
-  delay: 0.8,
-  display: "none",
-  // onComplete: () =>
-  //   document
-  //     .querySelector(".everySectionWrapper")
-  //     .classList.remove("is-loading"),
-});
+// t1.addPause(2);
+t1.play();
 
-t2.eventCallback("onComplete", function () {
-  enableScroll();
-  t1.play();
-});
+/////////////////////////////////////
+// disableScroll();
+// t2.from(".signature", {
+//   y: "-100%",
+//   opacity: 0,
+//   delay: 0.3,
+//   duration: 0.5,
+// });
+// t2.from(".signatureDesig", {
+//   // y: "100%",
+//   opacity: 0,
+//   duration: 0.8,
+// });
+// t2.to(".firstLayer", {
+//   y: "100%",
+//   duration: 1,
+//   delay: 0.8,
+//   display: "none",
+//   // onComplete: () =>
+//   //   document
+//   //     .querySelector(".everySectionWrapper")
+//   //     .classList.remove("is-loading"),
+// });
+
+// t2.eventCallback("onComplete", function () {
+//   enableScroll();
+//   t1.play();
+// });
 const firstLayer = document.querySelector(".firstLayer");
 
 t1.to(".revelaHead", { y: "0%", duration: 0.7, stagger: 0.2 });
@@ -471,6 +471,22 @@ gsap.from(".Contimg1", {
     scrub: 1,
   },
 });
+// const techimg = document.querySelectorAll(".techimg");
+// techimg.forEach((el) => {
+//   el.addEventListener("mouseover", () => {
+//     gsap.to(el, {
+//       scale: 1.1,
+//       ease: "power1.inOut",
+//     });
+//   });
+//   el.addEventListener("mouseleave", () => {
+//     gsap.to(el, {
+//       scale: 1,
+//       ease: "power1.inOut",
+//     });
+//   });
+// });
+
 gsap.to(".boxHead", {
   y: "30%",
   duration: 0.1,
@@ -510,3 +526,91 @@ if (!mob.matches) {
     },
   });
 }
+let tilesTl = gsap.timeline({
+  // duration: 0.5,
+  // delay: 0,
+  scrollTrigger: {
+    trigger: ".iUseSec",
+    // markers: true,
+    start: "top 20%",
+    end: "bottom 98%",
+    scrub: 1,
+  },
+});
+tilesTl.from(".gsapImg", {
+  // y: "38%",
+  x: "-49%",
+  ease: "power3.out",
+});
+tilesTl.from(
+  ".cssImg",
+  {
+    y: "-58%",
+    x: "-39%",
+    ease: "power3.out",
+  },
+  0
+);
+tilesTl.from(
+  ".photoshopImg",
+  {
+    y: "58%",
+    x: "-39%",
+    ease: "power3.out",
+  },
+  0
+);
+tilesTl.from(
+  ".htmlImg",
+  {
+    y: "-48%",
+    //  x: "-39%",
+    ease: "power3.out",
+  },
+  0
+);
+tilesTl.from(
+  ".javascriptImg",
+  {
+    scale: 0.6,
+    // opacity: 0.6,
+    //  x: "-39%",
+    ease: "power3.out",
+  },
+  0
+);
+tilesTl.from(
+  ".reactImg",
+  {
+    y: "39%",
+    ease: "power3.out",
+  },
+  0
+);
+tilesTl.from(
+  ".scssImg",
+  {
+    x: "39%",
+    y: "-39%",
+    ease: "power3.out",
+  },
+  0
+);
+tilesTl.from(
+  ".illuImg",
+  {
+    x: "39%",
+    y: "39%",
+    ease: "power3.out",
+  },
+  0
+);
+tilesTl.from(
+  ".pythonImg",
+  {
+    x: "49%",
+    // y: "39%",
+    ease: "power3.out",
+  },
+  0
+);

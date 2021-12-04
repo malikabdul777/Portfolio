@@ -229,5 +229,14 @@
     .infiScrollCont-iUse {
       width: 270px;
     }
+    .techWrapper {
+      .gsapImgCont,
+      .pythonImgCont {
+        display: none;
+      }
+    }
+    .techWrapper {
+      margin-left: -3.4rem;
+    }
   }
 }

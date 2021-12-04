@@ -59,14 +59,14 @@
 .infiScrollCont {
   // background-color: white;
   width: 250px;
-  height: 38px;
+  height: 48px;
   // border: 1px solid white;
   overflow: hidden;
   color: $color-primary;
   font-size: 2.56rem;
 }
 .infiScrollCont-whoAmI {
-  width: 180px;
+  width: 240px;
   display: flex;
   // border: 1px solid white;
 }
@@ -95,4 +95,8 @@
   line-height: 30px;
   font-size: 1.7rem;
   text-align: justify;
+  margin-top: 3rem;
+}
+.heighliteP {
+  color: $color-primary;
 }

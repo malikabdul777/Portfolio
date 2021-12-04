@@ -355,6 +355,13 @@ body {
   .iUseSec .infiScrollCont-iUse {
     width: 270px;
   }
+  .iUseSec .techWrapper .gsapImgCont,
+.iUseSec .techWrapper .pythonImgCont {
+    display: none;
+  }
+  .iUseSec .techWrapper {
+    margin-left: -3.4rem;
+  }
 }
 :root {
   --color-primary: #e89f4c;
@@ -760,14 +767,14 @@ body {
 
 .infiScrollCont {
   width: 250px;
-  height: 38px;
+  height: 48px;
   overflow: hidden;
   color: var(--color-primary);
   font-size: 2.56rem;
 }
 
 .infiScrollCont-whoAmI {
-  width: 180px;
+  width: 240px;
   display: flex;
 }
 
@@ -785,6 +792,11 @@ body {
   line-height: 30px;
   font-size: 1.7rem;
   text-align: justify;
+  margin-top: 3rem;
+}
+
+.heighliteP {
+  color: var(--color-primary);
 }
 
 .webGl {
@@ -837,11 +849,16 @@ body {
   width: 100%;
   margin-top: 0rem;
   min-height: 95vh;
-  padding: 1rem 15rem;
+  padding: 1rem 10rem;
   position: relative;
   display: flex;
-  justify-content: center;
-  align-items: top;
+  flex-direction: column;
+  justify-content: top;
+  align-items: center;
+}
+.iUseSec h1 {
+  margin-top: 4rem;
+  font-size: 2.1rem;
 }
 
 .infiScrollCont-iUse {
@@ -850,4 +867,70 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.techWrapper {
+  width: 90%;
+  height: 40vh;
+  border-radius: 1.5rem;
+  margin-top: 13rem;
+  margin-left: -5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+.techWrapper .techCont {
+  margin-left: 4rem;
+}
+.techWrapper .techimg {
+  width: 12rem;
+  height: 9rem;
+  border-radius: 0.7rem;
+  background-color: white;
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.164);
+  margin-top: 4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  overflow: hidden;
+}
+.techWrapper .techIcon {
+  width: 36%;
+  transform: translateY(20%);
+  transition: transform 0.5s ease;
+}
+.techWrapper .sassIcon {
+  width: 53%;
+}
+.techWrapper .gsapIcon {
+  margin-left: -10px;
+  width: 46%;
+}
+.techWrapper .javascriptIcon {
+  width: 46%;
+}
+.techWrapper .photoshopIcon {
+  width: 42%;
+}
+.techWrapper .tilesTitle {
+  color: black;
+  transform: translateY(130%);
+  transition: transform 0.5s ease;
+}
+.techWrapper .techimg:hover .techIcon {
+  transform: translateY(0) scale(0.85);
+}
+.techWrapper .techimg:hover .tilesTitle {
+  transform: translate(0);
+}
+.techWrapper .techimg:hover {
+  transform: scaleX(2);
+}
+.techWrapper .tilesTitle {
+  font-size: 1.5rem;
+}
+.techWrapper .smallTxt {
+  font-size: 1.4rem;
 }/*# sourceMappingURL=style.css.map */
