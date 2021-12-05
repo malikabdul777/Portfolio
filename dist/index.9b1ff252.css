@@ -1,8 +1,7 @@
-@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Poppins:wght@300;400;500;600&family=Syncopate:wght@400;700&display=swap");
+@import "https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Poppins:wght@300;400;500;600&family=Syncopate:wght@400;700&display=swap";
 :root {
   --color-primary: #e89f4c;
 }
-
 *,
 *::after,
 *::before {
@@ -10,18 +9,15 @@
   padding: 0;
   box-sizing: border-box;
 }
-
 html {
   font-size: 62.5%;
 }
 html body {
   cursor: none;
 }
-
 a {
   cursor: none;
 }
-
 body {
   background-color: black;
   font-family: "Poppins", sans-serif;
@@ -31,32 +27,25 @@ body {
   overflow-x: hidden;
   min-height: 100vh;
 }
-
 .section {
   min-height: 95vh;
   overflow: hidden !important;
 }
-
 .hide {
   display: none;
 }
-
 .show {
   display: block;
 }
-
 .inToView {
   transform: translateX(0) !important;
 }
-
 .js-tilt-glare {
   border-radius: 1.5rem;
 }
-
 :root {
   --color-primary: #e89f4c;
 }
-
 @-webkit-keyframes cursorClickAnim {
   0% {
     transform: scale(1);
@@ -69,7 +58,6 @@ body {
     opacity: 0;
   }
 }
-
 @keyframes cursorClickAnim {
   0% {
     transform: scale(1);
@@ -336,35 +324,29 @@ body {
 html.has-scroll-smooth {
   overflow: hidden;
 }
-
 html.has-scroll-dragging {
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
 }
-
 .has-scroll-smooth body {
   overflow: hidden;
 }
-
 .has-scroll-smooth [data-scroll-container] {
   min-height: 100vh;
 }
-
 [data-scroll-direction=horizontal] [data-scroll-container] {
   height: 100vh;
   display: inline-block;
   white-space: nowrap;
 }
-
 [data-scroll-direction=horizontal] [data-scroll-section] {
   display: inline-block;
   vertical-align: top;
   white-space: nowrap;
   height: 100%;
 }
-
 .c-scrollbar {
   position: absolute;
   right: 0;
@@ -375,17 +357,14 @@ html.has-scroll-dragging {
   transition: transform 0.3s, opacity 0.3s;
   opacity: 0;
 }
-
 .c-scrollbar:hover {
   transform: scaleX(1.45);
 }
-
 .c-scrollbar:hover,
 .has-scroll-scrolling .c-scrollbar,
 .has-scroll-dragging .c-scrollbar {
   opacity: 1;
 }
-
 [data-scroll-direction=horizontal] .c-scrollbar {
   width: 100%;
   height: 10px;
@@ -393,11 +372,9 @@ html.has-scroll-dragging {
   bottom: 0;
   transform: scaleY(1);
 }
-
 [data-scroll-direction=horizontal] .c-scrollbar:hover {
   transform: scaleY(1.3);
 }
-
 .c-scrollbar_thumb {
   position: absolute;
   top: 0;
@@ -410,21 +387,17 @@ html.has-scroll-dragging {
   cursor: -webkit-grab;
   cursor: grab;
 }
-
 .has-scroll-dragging .c-scrollbar_thumb {
   cursor: -webkit-grabbing;
   cursor: grabbing;
 }
-
 [data-scroll-direction=horizontal] .c-scrollbar_thumb {
   right: auto;
   bottom: 0;
 }
-
 :root {
   --color-primary: #e89f4c;
 }
-
 .cursor-circle {
   z-index: 99;
   width: 2.4rem;
@@ -438,7 +411,6 @@ html.has-scroll-dragging {
   /* animation: cursorClickAnim 0.5s infinite; */
   mix-blend-mode: difference;
 }
-
 .cursor {
   z-index: 99;
   height: 0.6rem;
@@ -450,19 +422,16 @@ html.has-scroll-dragging {
   transition: all 0.5s ease;
   transition-property: background, transform;
 }
-
 .shrink {
   -webkit-animation: realCursorClickAnim 0.5s infinite;
           animation: realCursorClickAnim 0.5s infinite;
   border: 0.1rem solid var(--color-primary);
 }
-
 .expand {
   -webkit-animation: cursorClickAnim 0.5s infinite;
           animation: cursorClickAnim 0.5s infinite;
   border: 0.1rem solid var(--color-primary);
 }
-
 .cursor-click {
   z-index: 99;
   width: 2.4rem;
@@ -474,15 +443,12 @@ html.has-scroll-dragging {
   transition-duration: 150ms;
   transition-timing-function: ease-out;
 }
-
 .cursorGrow {
   transform: scale(17);
 }
-
 .cursorGrowSmall {
   transform: scale(3);
 }
-
 .logo {
   height: 8rem;
   transition: transform 0.5s linear;
@@ -493,24 +459,19 @@ html.has-scroll-dragging {
 .logo:active {
   transform: translateY(-10px) scale(0.9);
 }
-
 .Hero-wrapper {
   padding: 2.2rem 3rem;
 }
-
 .whiteMenu {
   display: none;
 }
-
 .mob-logo {
   display: none;
 }
-
 .Hero-wrapper {
   display: flex;
   padding-right: 2rem;
 }
-
 .nav-bar {
   height: 10rem;
   display: flex;
@@ -519,7 +480,6 @@ html.has-scroll-dragging {
   flex-direction: row;
   width: 100%;
 }
-
 .link-list {
   display: flex;
   justify-content: center;
@@ -575,18 +535,15 @@ html.has-scroll-dragging {
 .link-list .link:hover::after {
   width: 100%;
 }
-
 .navSet {
   width: 200px;
   display: flex;
   justify-content: space-between;
 }
-
 .links {
   padding-top: 1rem;
   display: inline-block;
 }
-
 @media screen and (max-width: 900px) {
   .whiteMenu {
     display: block;
@@ -670,19 +627,16 @@ html.has-scroll-dragging {
   position: relative;
   overflow-x: hidden;
 }
-
 .freelanceTit {
   font-family: "Poppins", sans-serif;
   font-size: 1.4rem;
   color: #808080;
   margin: 0 0 2rem 3rem;
 }
-
 .Hero-wrapper {
   max-width: 100vw;
   overflow: hidden;
 }
-
 .circle {
   min-height: 70rem;
   min-width: 70rem;
@@ -694,30 +648,25 @@ html.has-scroll-dragging {
   border: 1px solid var(--color-primary);
   z-index: -1;
 }
-
 .introp {
   margin-top: 2rem;
   font-family: "Poppins", sans-serif;
   font-size: 1.6rem;
   color: #808080;
 }
-
 .hero-whole-wrapper {
   max-width: 100vw;
   overflow-x: hidden;
   margin-left: -1rem;
 }
-
 .mainHeadEl {
   background-color: black;
   overflow: hidden;
 }
-
 .mainHeadEl span {
   display: inline-block;
   transform: translateY(100%);
 }
-
 .firstLayer {
   min-height: 100vh;
   min-width: 100vw;
@@ -730,12 +679,10 @@ html.has-scroll-dragging {
   -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
           clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
 }
-
 .boxHead {
   padding: 2rem;
   margin-top: -9rem;
 }
-
 .firstLayer {
   height: 100vh;
   width: 100vw;
@@ -750,24 +697,20 @@ html.has-scroll-dragging {
   text-transform: uppercase;
   color: var(--color-primary);
 }
-
 .signature {
   width: 50%;
   margin-top: -2rem;
 }
-
 .textCircle {
   position: absolute;
   bottom: 10%;
   right: -4%;
   height: 20rem;
 }
-
 .spanDiff {
   color: var(--color-primary);
   display: inline-block;
 }
-
 .aboutMe {
   width: 100%;
   margin-top: -3rem;
@@ -778,7 +721,6 @@ html.has-scroll-dragging {
   justify-content: space-around;
   align-items: center;
 }
-
 .ghostText {
   position: absolute;
   top: 20%;
@@ -788,41 +730,34 @@ html.has-scroll-dragging {
   color: #808080;
   z-index: -1;
 }
-
 .cont-aboutMe {
   width: 50%;
 }
 .cont-aboutMe h2 {
   margin-bottom: 3rem;
 }
-
 .Contimg1 {
   display: block;
   overflow: hidden;
   transition: border-radius 0.2s linear;
   border-radius: 1.5rem;
 }
-
 .mobMyImg {
   display: none;
   overflow: hidden;
   transition: border-radius 0.2s linear;
   border-radius: 1.5rem;
 }
-
 .Contimg1:hover {
   border-radius: 1.5rem;
 }
-
 .mobMyImg:hover {
   border-radius: 1.5rem;
 }
-
 .myImg {
   height: 40rem;
   transform: scale(1.02);
 }
-
 .infiScrollCont {
   width: 250px;
   height: 48px;
@@ -830,33 +765,27 @@ html.has-scroll-dragging {
   color: var(--color-primary);
   font-size: 2.56rem;
 }
-
 .infiScrollCont-whoAmI {
   width: 240px;
   display: flex;
 }
-
 .infinScrollHead {
   margin-right: 20px;
   -webkit-animation: scrollText 3s infinite linear;
           animation: scrollText 3s infinite linear;
 }
-
 .infiScrollWrapper {
   display: flex;
 }
-
 .abtMeP {
   line-height: 30px;
   font-size: 1.7rem;
   text-align: justify;
   margin-top: 3rem;
 }
-
 .heighliteP {
   color: var(--color-primary);
 }
-
 .webGl {
   display: flex;
   justify-content: center;
@@ -871,7 +800,6 @@ html.has-scroll-dragging {
   min-width: 100vw;
   max-width: 100vw;
 }
-
 .iconMainCont {
   position: absolute;
   height: 4.5rem;
@@ -890,19 +818,16 @@ html.has-scroll-dragging {
      object-fit: contain;
   opacity: 1;
 }
-
 .htmlIcon {
   top: 10%;
   left: 10%;
   background-color: #ff6a0062;
 }
-
 .cssIcon {
   top: 20%;
   right: 10%;
   background-color: #29a9df56;
 }
-
 .iUseSec {
   width: 100%;
   margin-top: 0rem;
@@ -918,7 +843,6 @@ html.has-scroll-dragging {
   margin-top: 4rem;
   font-size: 2.1rem;
 }
-
 .infiScrollCont-iUse {
   width: 430px;
   font-size: 2.56rem;
@@ -926,7 +850,6 @@ html.has-scroll-dragging {
   justify-content: center;
   align-items: center;
 }
-
 .techWrapper {
   width: 90%;
   height: 40vh;
@@ -992,7 +915,6 @@ html.has-scroll-dragging {
 .techWrapper .smallTxt {
   font-size: 1.4rem;
 }
-
 .myWorkSec {
   position: relative;
   padding: 10rem;
@@ -1026,4 +948,5 @@ html.has-scroll-dragging {
 }
 .myWorkSec .myWorkCont .workImgsC {
   flex: 1.5;
-}/*# sourceMappingURL=style.css.map */
+}
+/*# sourceMappingURL=index.9b1ff252.css.map */

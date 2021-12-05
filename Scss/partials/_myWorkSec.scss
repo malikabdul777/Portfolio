@@ -1,0 +1,37 @@
+.myWorkSec {
+  position: relative;
+  .infiScrollCont-work {
+    // margin-top: -2rem;
+    margin-bottom: 3rem;
+  }
+  padding: 10rem;
+  .myWorkCont {
+    display: flex;
+    .nameTxtC {
+      flex: 1;
+      .myWorkTitleC {
+        margin-bottom: 2rem;
+        h1 {
+          font-size: 2.8rem;
+        }
+      }
+      .myWorkParaC {
+        margin: 2rem 0 3rem 0;
+        p {
+          text-align: justify;
+        }
+      }
+      .myWorkButtonC {
+        button {
+          padding: 1rem 2.5rem;
+          border-radius: 2rem;
+          border: 0;
+          background-color: $color-primary;
+        }
+      }
+    }
+    .workImgsC {
+      flex: 1.5;
+    }
+  }
+}
