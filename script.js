@@ -19,6 +19,37 @@ const iconMainCont = document.querySelectorAll(".iconMainCont");
 
 gsap.registerPlugin(ScrollTrigger);
 
+//// Locomotive scroll
+const locoScroll = new LocomotiveScroll({
+  el: document.querySelector(".web-wrapper"),
+  smooth: true,
+});
+
+// each time Locomotive Scroll updates, tell ScrollTrigger to update too (sync positioning)
+
+locoScroll.on("scroll", ScrollTrigger.update);
+
+// tell ScrollTrigger to use these proxy methods for the ".smooth-scroll" element since Locomotive Scroll is hijacking things
+ScrollTrigger.scrollerProxy(".web-wrapper", {
+  scrollTop(value) {
+    return arguments.length
+      ? locoScroll.scrollTo(value, 0, 0)
+      : locoScroll.scroll.instance.scroll.y;
+  }, // we don't have to define a scrollLeft because we're only scrolling vertically.
+  getBoundingClientRect() {
+    return {
+      top: 0,
+      left: 0,
+      width: window.innerWidth,
+      height: window.innerHeight,
+    };
+  },
+  // LocomotiveScroll handles things completely differently on mobile devices - it doesn't even transform the container at all! So to get the correct behavior and avoid jitters, we should pin things with position: fixed on mobile. We sense it by checking to see if there's a transform applied to the container (the LocomotiveScroll-controlled element).
+  pinType: document.querySelector(".web-wrapper").style.transform
+    ? "transform"
+    : "fixed",
+});
+
 //// Asscent Color
 let asscentColorsArray = [
   "#e89f4c",
@@ -455,6 +486,7 @@ gsap.from(".gtAbout", {
     // markers: true,
     start: "top 55%",
     end: "bottom 98%",
+    scroller: ".web-wrapper",
     scrub: 1,
     // toggleActions: "play complete restart reverse",
   },
@@ -468,6 +500,7 @@ gsap.from(".Contimg1", {
     // markers: true,
     start: "top 55%",
     end: "bottom 98%",
+    scroller: ".web-wrapper",
     scrub: 1,
   },
 });
@@ -496,6 +529,7 @@ gsap.to(".boxHead", {
     // markers: true,
     start: "top 85%",
     end: "bottom 98%",
+    scroller: ".web-wrapper",
     scrub: 1,
   },
 });
@@ -508,6 +542,7 @@ gsap.from(".gtIUse", {
     // markers: true,
     start: "top 55%",
     end: "bottom 98%",
+    scroller: ".web-wrapper",
     scrub: 1,
   },
 });
@@ -522,6 +557,7 @@ if (!mob.matches) {
       // markers: true,
       start: "top 85%",
       end: "bottom 98%",
+      scroller: ".web-wrapper",
       scrub: 1,
     },
   });
@@ -534,6 +570,7 @@ let tilesTl = gsap.timeline({
     // markers: true,
     start: "top 20%",
     end: "bottom 98%",
+    scroller: ".web-wrapper",
     scrub: 1,
   },
 });
@@ -614,3 +651,11 @@ tilesTl.from(
   },
   0
 );
+
+///locomotive scroll
+
+// each time the window updates, we should refresh ScrollTrigger and then update LocomotiveScroll.
+ScrollTrigger.addEventListener("refresh", () => locoScroll.update());
+
+// after everything is set up, refresh() ScrollTrigger and update LocomotiveScroll because padding may have been added for pinning, etc.
+ScrollTrigger.refresh();

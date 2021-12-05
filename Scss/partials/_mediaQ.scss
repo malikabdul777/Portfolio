@@ -159,6 +159,16 @@
     max-height: 15rem;
   }
 }
+@media screen and (max-width: 725px) {
+  .iUseSec {
+    .techWrapper {
+      .gsapImgCont,
+      .pythonImgCont {
+        display: none;
+      }
+    }
+  }
+}
 @media screen and (max-width: 450px) {
   html {
     font-size: 40%;
