@@ -714,8 +714,8 @@ html.has-scroll-dragging {
 }
 
 .myImg {
-  height: 40rem;
-  transform: scale(1.02);
+  height: 41rem;
+  width: 101%;
 }
 
 .infiScrollCont {
