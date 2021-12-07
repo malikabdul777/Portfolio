@@ -1,16 +1,40 @@
 .myWorkSec {
   position: relative;
+  min-height: 140vh;
+  .workContMain {
+    margin-bottom: 9rem;
+  }
   .infiScrollCont-work {
     // margin-top: -2rem;
     margin-bottom: 3rem;
   }
   padding: 10rem;
-  .myWorkCont {
+  .TrackOutC {
     display: flex;
     .nameTxtC {
+      @include flexCenter(column);
+      align-items: flex-start;
       flex: 1;
+
+      .myWorkButtonC {
+        button {
+          padding: 1rem 2.5rem;
+          border-radius: 2rem;
+          border: 0;
+          background-color: $color-primary;
+          transition: transform 0.5s ease;
+          a {
+            text-decoration: none;
+            color: black;
+          }
+        }
+        button:hover {
+          transform: scale(1.05) translateY(-4px);
+        }
+      }
+
       .myWorkTitleC {
-        margin-bottom: 2rem;
+        margin-bottom: 1rem;
         h1 {
           font-size: 2.8rem;
         }
@@ -31,7 +55,88 @@
       }
     }
     .workImgsC {
-      flex: 1.5;
+      flex: 1.3;
+      @include flexCenter(row);
+
+      padding-left: 5rem;
+      .seoNinjaPng {
+        width: 50rem;
+        z-index: -1;
+      }
+      .seoNinjaPng2 {
+        height: 30rem;
+        object-fit: contain;
+        margin-left: -6rem;
+      }
+    }
+  }
+  .myWorkCont {
+    display: flex;
+
+    .nameTxtC {
+      @include flexCenter(column);
+      align-items: flex-start;
+      flex: 1;
+
+      .myWorkTitleC {
+        margin-bottom: 1rem;
+        h1 {
+          font-size: 2.8rem;
+        }
+      }
+      .myWorkParaC {
+        margin: 2rem 0 3rem 0;
+        p {
+          text-align: justify;
+        }
+      }
+      .myWorkButtonC {
+        button {
+          padding: 1rem 2.5rem;
+          border-radius: 2rem;
+          border: 0;
+          background-color: $color-primary;
+          transition: transform 0.5s ease;
+          a {
+            text-decoration: none;
+            color: black;
+          }
+        }
+        button:hover {
+          transform: scale(1.05) translateY(-4px);
+        }
+      }
+    }
+    .workImgsC {
+      flex: 1.3;
+      @include flexCenter(row);
+
+      padding-left: 5rem;
+      .seoNinjaPng {
+        width: 50rem;
+        z-index: -1;
+      }
+      .seoNinjaPng2 {
+        height: 30rem;
+        object-fit: contain;
+        margin-left: -6rem;
+      }
+    }
+  }
+  .ipadSeoC {
+    width: 100%;
+    @include flexCenter(row);
+    perspective: 1000px;
+    .Seo1Img {
+      width: 100%;
+    }
+  }
+  .TrackOutC {
+    width: 100%;
+    @include flexCenter(row);
+    perspective: 1000px;
+    .TrackOutImg {
+      width: 100%;
     }
   }
 }

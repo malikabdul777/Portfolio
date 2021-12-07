@@ -19,17 +19,15 @@ const iconMainCont = document.querySelectorAll(".iconMainCont");
 
 gsap.registerPlugin(ScrollTrigger);
 
-//// Locomotive scroll
+// Locomotive scroll
 const locoScroll = new LocomotiveScroll({
   el: document.querySelector(".web-wrapper"),
   smooth: true,
+  smoothMobile: true,
 });
-
-// each time Locomotive Scroll updates, tell ScrollTrigger to update too (sync positioning)
 
 locoScroll.on("scroll", ScrollTrigger.update);
 
-// tell ScrollTrigger to use these proxy methods for the ".smooth-scroll" element since Locomotive Scroll is hijacking things
 ScrollTrigger.scrollerProxy(".web-wrapper", {
   scrollTop(value) {
     return arguments.length
@@ -44,11 +42,40 @@ ScrollTrigger.scrollerProxy(".web-wrapper", {
       height: window.innerHeight,
     };
   },
-  // LocomotiveScroll handles things completely differently on mobile devices - it doesn't even transform the container at all! So to get the correct behavior and avoid jitters, we should pin things with position: fixed on mobile. We sense it by checking to see if there's a transform applied to the container (the LocomotiveScroll-controlled element).
+
   pinType: document.querySelector(".web-wrapper").style.transform
     ? "transform"
     : "fixed",
 });
+
+//// skew
+
+let proxy = { skew: 0 },
+  skewSetter = gsap.quickSetter(".skewElem", "skewY", "deg"), // fast
+  clamp = gsap.utils.clamp(-8, 8);
+
+ScrollTrigger.create({
+  scroller: ".web-wrapper",
+  trigger: "#root",
+
+  onUpdate: (self) => {
+    let skew = clamp(self.getVelocity() / -300);
+
+    if (Math.abs(skew) > Math.abs(proxy.skew)) {
+      proxy.skew = skew;
+      gsap.to(proxy, {
+        skew: 0,
+        duration: 0.4,
+        ease: "power3",
+        overwrite: true,
+        onUpdate: () => skewSetter(proxy.skew),
+      });
+    }
+  },
+});
+
+// make the right edge "stick" to the scroll bar. force3D: true improves performance
+// gsap.set(".skewElem", { transformOrigin: "right center", force3D: true });
 
 //// Asscent Color
 let asscentColorsArray = [
@@ -210,7 +237,6 @@ document.addEventListener("mousemove", (e) => {
     "style",
     `top: ${e.pageY + 8.8}px; left: ${e.pageX + 8.8}px`
   );
-  // cursorCircle.setAttribute("style", `top: ${e.pageY}px; left: ${e.pageX}px`);
 });
 
 document.addEventListener("click", () => {
@@ -329,6 +355,7 @@ t1.play();
 
 /////////////////////////////////////
 // disableScroll();
+// locoScroll.stop();
 // t2.from(".signature", {
 //   y: "-100%",
 //   opacity: 0,
@@ -344,6 +371,7 @@ t1.play();
 //   y: "100%",
 //   duration: 1,
 //   delay: 0.8,
+//   opacity: 0,
 //   display: "none",
 //   // onComplete: () =>
 //   //   document
@@ -352,7 +380,8 @@ t1.play();
 // });
 
 // t2.eventCallback("onComplete", function () {
-//   enableScroll();
+//   // enableScroll();
+//   locoScroll.start();
 //   t1.play();
 // });
 const firstLayer = document.querySelector(".firstLayer");
@@ -504,6 +533,7 @@ gsap.from(".Contimg1", {
     scrub: 1,
   },
 });
+
 // const techimg = document.querySelectorAll(".techimg");
 // techimg.forEach((el) => {
 //   el.addEventListener("mouseover", () => {
@@ -546,8 +576,173 @@ gsap.from(".gtIUse", {
     scrub: 1,
   },
 });
-
+if (mob.matches) {
+  const expTl = gsap.timeline({
+    scrollTrigger: {
+      trigger: ".ipadSeoC",
+      // markers: true,
+      start: "top 100%",
+      end: "bottom 90%",
+      scroller: ".web-wrapper",
+      scrub: 1,
+      // pin: true,
+      // pinspacing: true,
+    },
+  });
+  expTl.from(".nameTxtC1", {
+    x: "-100%",
+    opacity: 0,
+  });
+  expTl.from(
+    ".Seo1Img",
+    {
+      y: "100%",
+      duration: 1,
+      opacity: 0,
+    },
+    "+=0.4"
+  );
+  const expTl2 = gsap.timeline({
+    scrollTrigger: {
+      trigger: ".TrackOutC",
+      // markers: true,
+      start: "top 100%",
+      end: "bottom 90%",
+      scroller: ".web-wrapper",
+      scrub: 1,
+      // pin: true,
+      // pinspacing: true,
+    },
+  });
+  expTl2.from(".nameTxtC2", {
+    x: "100%",
+    opacity: 0,
+  });
+  expTl2.from(
+    ".TrackOutImg",
+    {
+      y: "100%",
+      duration: 1,
+      opacity: 0,
+    },
+    "+=0.4"
+  );
+}
 if (!mob.matches) {
+  const TrackOutImg = document.querySelector(".TrackOutImg");
+  TrackOutImg.addEventListener("mouseover", () => {
+    gsap.to(TrackOutImg, {
+      rotateY: "0deg",
+    });
+  });
+  TrackOutImg.addEventListener("mouseleave", () => {
+    gsap.to(TrackOutImg, {
+      rotateY: "35deg",
+    });
+  });
+  const Seo1Img = document.querySelector(".Seo1Img");
+  Seo1Img.addEventListener("mouseover", () => {
+    gsap.to(Seo1Img, {
+      rotateY: "0deg",
+    });
+  });
+  Seo1Img.addEventListener("mouseleave", () => {
+    gsap.to(Seo1Img, {
+      rotateY: "-35deg",
+    });
+  });
+  const expTl = gsap.timeline({
+    scrollTrigger: {
+      trigger: ".ipadSeoC",
+      // markers: true,
+      start: "top 60%",
+      end: "bottom 90%",
+      scroller: ".web-wrapper",
+      scrub: 1,
+    },
+  });
+  expTl.fromTo(
+    ".Seo1Img",
+    {
+      xPercent: -40,
+      // rotateY: "10deg",
+      // rotateX: "30deg",
+      scale: 1,
+    },
+    {
+      // xPercent: -60,
+      rotateY: "0deg",
+      // rotateX: "0deg",
+      scale: 0.8,
+      duration: 0.4,
+    }
+  );
+  expTl.to(".Seo1Img", {
+    x: "45%",
+    duration: 0.4,
+  });
+  expTl.to(".Seo1Img", {
+    rotateY: "-35deg",
+    duration: 0.4,
+  });
+  expTl.fromTo(
+    ".nameTxtC1",
+    {
+      x: "-100%",
+      opacity: 0,
+    },
+    {
+      x: "10%",
+      opacity: 1,
+    }
+  );
+
+  const expTl2 = gsap.timeline({
+    scrollTrigger: {
+      trigger: ".TrackOutC",
+      // markers: true,
+      start: "top 80%",
+      end: "bottom 110%",
+      scroller: ".web-wrapper",
+      scrub: 1,
+    },
+  });
+  expTl2.fromTo(
+    ".TrackOutImg",
+    {
+      xPercent: 30,
+      // rotateY: "10deg",
+      // rotateX: "30deg",
+      scale: 1,
+    },
+    {
+      // xPercent: 0,
+      // xPercent: -60,
+      rotateY: "0deg",
+      // rotateX: "0deg",
+      scale: 0.8,
+      duration: 0.4,
+    }
+  );
+  expTl2.to(".TrackOutImg", {
+    x: "-40%",
+    duration: 0.4,
+  });
+  expTl2.to(".TrackOutImg", {
+    rotateY: "33deg",
+    duration: 0.4,
+  });
+  expTl2.fromTo(
+    ".nameTxtC2",
+    {
+      x: "100%",
+      opacity: 0,
+    },
+    {
+      x: "-10%",
+      opacity: 1,
+    }
+  );
   gsap.to(".cont-aboutMe", {
     y: "38%",
     duration: 0.1,
@@ -651,7 +846,44 @@ tilesTl.from(
   },
   0
 );
+// const ipadSeo = document.querySelector(".ipadSeo");
 
+// const seoTl = gsap.timeline({
+//   // defaults: { ease: "power3.out" },
+//   scrollTrigger: {
+//     trigger: ".work1",
+//     markers: true,
+//     start: "top 30%",
+//     end: "bottom 10%",
+//     scrub: 1,
+//     pin: true,
+//     // pinspacing: false,
+//   },
+// });
+
+// seoTl.to(".seoNinjaPng", {
+//   y: "-100%",
+//   ease: "power1.inOut",
+//   duration: 5,
+// });
+// seoTl.to(
+//   ".seoNinjaPng2",
+//   {
+//     y: "-150%",
+//     ease: "power1.inOut",
+//     duration: 6,
+//   },
+//   0.5
+// );
+// seoTl.to(
+//   ".nameTxtC1",
+//   {
+//     y: "-150%",
+//     ease: "power1.inOut",
+//     duration: 6,
+//   },
+//   0.5
+// );
 ///locomotive scroll
 
 // each time the window updates, we should refresh ScrollTrigger and then update LocomotiveScroll.

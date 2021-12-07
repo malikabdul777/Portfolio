@@ -61,7 +61,7 @@
 .firstLayer {
   min-height: 100vh;
   min-width: 100vw;
-  background-color: rgb(8, 8, 8);
+  background-color: rgb(255, 255, 255);
   position: absolute;
   top: 0;
   left: 0;
@@ -82,7 +82,7 @@
     margin-top: 3.5rem;
     font-size: 2rem;
     text-transform: uppercase;
-    color: $color-primary;
+    color: black;
   }
 }
 .signature {

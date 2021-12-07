@@ -31,9 +31,10 @@
 .Contimg1 {
   display: block;
   overflow: hidden;
-  transition: border-radius 0.2s linear;
+  transition: all 0.5s linear;
   border-radius: 1.5rem;
 }
+
 .mobMyImg {
   display: none;
   overflow: hidden;
@@ -42,6 +43,7 @@
 }
 .Contimg1:hover {
   border-radius: 1.5rem;
+  // clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
 }
 .mobMyImg:hover {
   border-radius: 1.5rem;

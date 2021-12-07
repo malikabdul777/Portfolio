@@ -12,49 +12,51 @@
     <link rel="stylesheet" href="./dist/css/style.css" />
     <script
       defer
+      src="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.3/dist/locomotive-scroll.min.js"
+    ></script>
+    <script
+      defer
       src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.8.0/gsap.min.js"
     ></script>
     <script
       defer
       src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.8.0/ScrollTrigger.min.js"
     ></script>
-    <script
-      defer
-      src="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.min.js"
-    ></script>
+
     <script defer src="./libs/vanilla-tilt.min.js"></script>
     <!-- <script defer src="./libs/simpleParallax.js"></script> -->
     <script defer type="module" src="script.js"></script>
   </head>
   <body>
-    <div class="cursor-circle"></div>
-    <div class="cursor"></div>
-    <div class="cursor-click"></div>
-    <div class="web-wrapper">
+    <div class="web-wrapper" id="root" data-scroll-container>
       <!-- <div class="firstLayer">
-        <img class="signature" src="./images/signature.svg" alt="name of dev" />
+        <img
+          class="signature"
+          src="./images/signatureBlack.svg"
+          alt="name of dev"
+        />
         <p class="signatureDesig">Full Stack Web Developer.</p>
       </div> -->
-      <div class="everySectionWrapper">
+      <div class="everySectionWrapper skewElem" id="home">
         <section class="hero-whole-wrapper section">
           <div class="circle"></div>
           <div class="Hero-wrapper">
             <nav class="nav-bar">
               <ul class="link-list">
-                <div class="whiteMenu"></div>
-                <div class="firstSet navSet">
+                <!-- <div class="whiteMenu"></div> -->
+                <!-- <div class="firstSet navSet">
                   <li class="links">
-                    <a href="#" class="link">HOME</a>
+                    <a href="#home" class="link">HOME</a>
                   </li>
                   <li class="links">
-                    <a href="#" class="link">WORK</a>
+                    <a href="#work" class="link">WORK</a>
                   </li>
-                </div>
+                </div> -->
                 <img src="images/logo.svg" alt="logo" class="logo" />
-                <div class="secondSet navSet">
+                <!-- <div class="secondSet navSet">
                   <li class="links"><a href="#" class="link">SKILLS</a></li>
                   <li class="links"><a href="#" class="link">CONTACT</a></li>
-                </div>
+                </div> -->
               </ul>
               <div class="burger">
                 <span class="spanNav span1"></span>
@@ -62,7 +64,7 @@
                 <span class="spanNav span3"></span>
               </div>
             </nav>
-            <img src="./images/logo.svg" alt="logo" class="mob-logo" />
+            <!-- <img src="./images/logo.svg" alt="logo" class="mob-logo" /> -->
           </div>
           <div class="mainHead">
             <div class="boxHead">
@@ -134,7 +136,7 @@
             data-tilt-max-glare="0.4"
           >
             <img
-              class="myImg Textureimg"
+              class="myImg"
               src="./images/Abdul Malik-min.jpeg"
               alt="Abdul Malik"
             />
@@ -238,37 +240,83 @@
             </div>
           </div>
         </section>
-        <section class="section myWorkSec">
+        <section class="section myWorkSec" id="work">
           <h2 class="ghostText gtIUse">My Work</h2>
           <div class="infiScrollCont infiScrollCont-work">
             <h2 class="infinScrollHead iUseH2">My Work</h2>
           </div>
-          <div class="myWorkCont">
-            <div class="nameTxtC">
-              <div class="myWorkTitleC">
-                <h1>SeoNinja</h1>
+          <div class="work1 workContMain">
+            <div class="myWorkCont">
+              <div class="nameTxtC nameTxtC1">
+                <div class="myWorkTitleC">
+                  <h1>SeoNinja</h1>
+                </div>
+                <div class="myWorkParaC">
+                  <p>
+                    I've built this site in my initial days of learning
+                    programming. As I had little to no knowledge of Javascript,
+                    I used Wow.js and Animate.css libraries to get the cool
+                    slide-in effects on this website. I got a Figma file
+                    containing the layout for this site and site images from an
+                    online website. I've built the whole website refering to
+                    those assets and design files.
+                  </p>
+                </div>
+                <div class="myWorkButtonC">
+                  <button>
+                    <a
+                      href="https://seoninja.netlify.app/html/index.html"
+                      target="_blank"
+                      >Live Website</a
+                    >
+                  </button>
+                </div>
               </div>
-              <div class="myWorkParaC">
-                <p>
-                  I've built this site in my initial days of learning
-                  programming. As I had little to no knowledge of Javascript, I
-                  used Wow.js and Animate.css libraries to get the cool slide-in
-                  effects on this website. I got a Figma file containing the
-                  layout for this site and site images from an online website.
-                  I've built the whole website refering to those assets and
-                  design files.
-                </p>
-              </div>
-              <div class="myWorkButtonC">
-                <button>Live Website</button>
+              <div class="workImgsC ipadSeoC">
+                <img src="./images/seo1.jpg" class="Seo1Img" alt="Seo1Img" />
               </div>
             </div>
-            <div class="workImgsC">
-              <!-- <img src="./images/Abdul Malik-min.jpeg" /> -->
+            <div class="TrackOutC">
+              <div class="workImgsC TrackOutC">
+                <img
+                  src="./images/TrackOut-min.jpg"
+                  class="TrackOutImg"
+                  alt="Seo1Img"
+                />
+              </div>
+              <div class="nameTxtC nameTxtC2">
+                <div class="myWorkTitleC">
+                  <h1>TrackOut</h1>
+                </div>
+                <div class="myWorkParaC">
+                  <p>
+                    I've built this site in my initial days of learning
+                    programming. As I had little to no knowledge of Javascript,
+                    I used Wow.js and Animate.css libraries to get the cool
+                    slide-in effects on this website. I got a Figma file
+                    containing the layout for this site and site images from an
+                    online website. I've built the whole website refering to
+                    those assets and design files.
+                  </p>
+                </div>
+                <div class="myWorkButtonC">
+                  <button>
+                    <a
+                      href="https://seoninja.netlify.app/html/index.html"
+                      target="_blank"
+                      >Live Website</a
+                    >
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
         </section>
+        <section class="section sectionContactMe"></section>
       </div>
     </div>
+    <div class="cursor-circle"></div>
+    <div class="cursor"></div>
+    <div class="cursor-click"></div>
   </body>
 </html>

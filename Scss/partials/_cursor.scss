@@ -1,18 +1,16 @@
-@import "./variables";
-//Cursor
-
 .cursor-circle {
   z-index: 99;
   width: 2.4rem;
   height: 2.4rem;
   border: 0.1rem solid $cursorColor;
   border-radius: 50%;
-  position: absolute;
+  position: fixed;
   opacity: 1;
   transition-duration: 150ms;
   transition-timing-function: ease-out;
   /* animation: cursorClickAnim 0.5s infinite; */
   mix-blend-mode: difference;
+  pointer-events: none;
 }
 .cursor {
   z-index: 99;
@@ -20,10 +18,11 @@
   width: 0.6rem;
   background-color: $color-primary;
   border-radius: 50%;
-  position: absolute;
+  position: fixed;
   mix-blend-mode: difference;
   transition: all 0.5s ease;
   transition-property: background, transform;
+  pointer-events: none;
 }
 .shrink {
   animation: realCursorClickAnim 0.5s infinite;
@@ -39,10 +38,11 @@
   height: 2.4rem;
   border: 0.1rem solid $color-primary;
   border-radius: 50%;
-  position: absolute;
+  position: fixed;
   opacity: 0.9;
   transition-duration: 150ms;
   transition-timing-function: ease-out;
+  pointer-events: none;
 }
 // .whiteCursor {
 //   background-color: #fff;
