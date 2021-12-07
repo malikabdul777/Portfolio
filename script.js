@@ -52,7 +52,7 @@ ScrollTrigger.scrollerProxy(".web-wrapper", {
 
 let proxy = { skew: 0 },
   skewSetter = gsap.quickSetter(".skewElem", "skewY", "deg"), // fast
-  clamp = gsap.utils.clamp(-8, 8);
+  clamp = gsap.utils.clamp(-5, 5);
 
 ScrollTrigger.create({
   scroller: ".web-wrapper",
@@ -73,9 +73,6 @@ ScrollTrigger.create({
     }
   },
 });
-
-// make the right edge "stick" to the scroll bar. force3D: true improves performance
-// gsap.set(".skewElem", { transformOrigin: "right center", force3D: true });
 
 //// Asscent Color
 let asscentColorsArray = [
@@ -350,40 +347,40 @@ function enableScroll() {
 ///////////
 let t1 = gsap.timeline();
 let t2 = gsap.timeline();
-// t1.addPause(2);
-t1.play();
+t1.addPause(2);
+// t1.play();
 
-/////////////////////////////////////
+///////////////////////////////////
 // disableScroll();
-// locoScroll.stop();
-// t2.from(".signature", {
-//   y: "-100%",
-//   opacity: 0,
-//   delay: 0.3,
-//   duration: 0.5,
-// });
-// t2.from(".signatureDesig", {
-//   // y: "100%",
-//   opacity: 0,
-//   duration: 0.8,
-// });
-// t2.to(".firstLayer", {
-//   y: "100%",
-//   duration: 1,
-//   delay: 0.8,
-//   opacity: 0,
-//   display: "none",
-//   // onComplete: () =>
-//   //   document
-//   //     .querySelector(".everySectionWrapper")
-//   //     .classList.remove("is-loading"),
-// });
+locoScroll.stop();
+t2.from(".signature", {
+  y: "-100%",
+  opacity: 0,
+  delay: 0.3,
+  duration: 0.5,
+});
+t2.from(".signatureDesig", {
+  // y: "100%",
+  opacity: 0,
+  duration: 0.8,
+});
+t2.to(".firstLayer", {
+  y: "100%",
+  duration: 1,
+  delay: 0.8,
+  opacity: 0,
+  display: "none",
+  // onComplete: () =>
+  //   document
+  //     .querySelector(".everySectionWrapper")
+  //     .classList.remove("is-loading"),
+});
 
-// t2.eventCallback("onComplete", function () {
-//   // enableScroll();
-//   locoScroll.start();
-//   t1.play();
-// });
+t2.eventCallback("onComplete", function () {
+  // enableScroll();
+  locoScroll.start();
+  t1.play();
+});
 const firstLayer = document.querySelector(".firstLayer");
 
 t1.to(".revelaHead", { y: "0%", duration: 0.7, stagger: 0.2 });
