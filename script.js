@@ -52,7 +52,7 @@ ScrollTrigger.scrollerProxy(".web-wrapper", {
 
 let proxy = { skew: 0 },
   skewSetter = gsap.quickSetter(".skewElem", "skewY", "deg"), // fast
-  clamp = gsap.utils.clamp(-5, 5);
+  clamp = gsap.utils.clamp(-3, 3);
 
 ScrollTrigger.create({
   scroller: ".web-wrapper",
