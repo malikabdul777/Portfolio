@@ -970,6 +970,7 @@ email.addEventListener("click", () => {
     copyEmailTxt.textContent = "Click to Copy!";
   }, 1500);
 });
+
 const date = new Date();
 const year = date.getFullYear();
 // console.log(year);
@@ -979,6 +980,7 @@ copyRight.textContent = `${copyTxt} ${year}`;
 // copyEmailTxt.addEventListener("mouseleave", () => {
 //   copyEmailTxt.textContent = "Click to Copy!";
 // });
+
 ///locomotive scroll
 
 // each time the window updates, we should refresh ScrollTrigger and then update LocomotiveScroll.

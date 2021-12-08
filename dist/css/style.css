@@ -259,6 +259,9 @@ body {
     margin-top: -20rem;
   }
 
+  .aboutMe a button {
+    margin-top: -10rem;
+  }
   .aboutMe .myImg {
     height: 60rem;
   }
@@ -302,7 +305,14 @@ body {
     margin-top: -30rem !important;
   }
 
+  .sectionContactMe {
+    max-height: 30vh;
+    min-height: 29vh;
+  }
+
   .footer {
+    max-height: 10vh;
+    min-height: 9vh;
     padding-bottom: 50px;
     margin-top: -200px;
   }
