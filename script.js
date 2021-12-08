@@ -84,42 +84,109 @@ let asscentColorsArray = [
   "#F27B70",
   // "#8a2be2",
 ];
-let prevAsscentColor =
-  localStorage.getItem("asscentColor") === null
-    ? null
-    : localStorage.getItem("asscentColor");
+// let prevAsscentColor =
+//   localStorage.getItem("asscentColor") === null
+//     ? null
+//     : localStorage.getItem("asscentColor");
 
-let randAsscent =
-  asscentColorsArray[Math.floor(Math.random() * asscentColorsArray.length)];
+if (localStorage.getItem("asscentColor") === null) {
+  let randAsscent =
+    asscentColorsArray[Math.floor(Math.random() * asscentColorsArray.length)];
+  const root = document.documentElement;
+  root.style.setProperty("--color-primary", randAsscent);
 
-let newAsscent = "";
+  let prevAsscentColor = randAsscent;
+  let newAsscent = "";
 
-// console.log(asscentColorsArray.findIndex((el) => el == `${randAsscent}`));
-(function () {
-  let val = null;
-  if (randAsscent !== prevAsscentColor) {
-    val = randAsscent;
-  } else {
-    let currInd = asscentColorsArray.findIndex((el) => el == `${randAsscent}`);
-    // console.log(currInd);
-    if (asscentColorsArray[currInd + 1] != undefined) {
-      val = asscentColorsArray[currInd + 1];
+  // console.log(asscentColorsArray.findIndex((el) => el == `${randAsscent}`));
+  (function () {
+    let val = null;
+    if (randAsscent !== prevAsscentColor) {
+      val = randAsscent;
     } else {
-      val = asscentColorsArray[currInd - 1];
+      let currInd = asscentColorsArray.findIndex(
+        (el) => el == `${randAsscent}`
+      );
+      if (asscentColorsArray[currInd + 1] != undefined) {
+        val = asscentColorsArray[currInd + 1];
+      } else {
+        val = asscentColorsArray[currInd - 1];
+      }
     }
+    newAsscent = val;
+  })();
+
+  if (prevAsscentColor == newAsscent) {
+    console.log("caught");
   }
-  newAsscent = val;
-})();
 
-if (prevAsscentColor == newAsscent) {
-  console.log("caught");
+  localStorage.setItem("asscentColor", newAsscent);
+} else {
+  let prevAsscentColor = localStorage.getItem("asscentColor");
+  const root = document.documentElement;
+  root.style.setProperty("--color-primary", prevAsscentColor);
+
+  let randAsscent =
+    asscentColorsArray[Math.floor(Math.random() * asscentColorsArray.length)];
+
+  let newAsscent = "";
+
+  // console.log(asscentColorsArray.findIndex((el) => el == `${randAsscent}`));
+  (function () {
+    let val = null;
+    if (randAsscent !== prevAsscentColor) {
+      val = randAsscent;
+    } else {
+      let currInd = asscentColorsArray.findIndex(
+        (el) => el == `${randAsscent}`
+      );
+      // console.log(currInd);
+      if (asscentColorsArray[currInd + 1] != undefined) {
+        val = asscentColorsArray[currInd + 1];
+      } else {
+        val = asscentColorsArray[currInd - 1];
+      }
+    }
+    newAsscent = val;
+  })();
+
+  if (prevAsscentColor == newAsscent) {
+    console.log("caught");
+  }
+
+  localStorage.setItem("asscentColor", newAsscent);
 }
+// let randAsscent =
+//   asscentColorsArray[Math.floor(Math.random() * asscentColorsArray.length)];
 
-localStorage.setItem("asscentColor", newAsscent);
+// let newAsscent = "";
 
-// console.log(newAsscent);
-const root = document.documentElement;
-root.style.setProperty("--color-primary", newAsscent);
+// // console.log(asscentColorsArray.findIndex((el) => el == `${randAsscent}`));
+// (function () {
+//   let val = null;
+//   if (randAsscent !== prevAsscentColor) {
+//     val = randAsscent;
+//   } else {
+//     let currInd = asscentColorsArray.findIndex((el) => el == `${randAsscent}`);
+//     // console.log(currInd);
+//     if (asscentColorsArray[currInd + 1] != undefined) {
+//       val = asscentColorsArray[currInd + 1];
+//     } else {
+//       val = asscentColorsArray[currInd - 1];
+//     }
+//   }
+//   newAsscent = val;
+// })();
+
+// if (prevAsscentColor == newAsscent) {
+//   console.log("caught");
+// }
+
+// localStorage.setItem("asscentColor", newAsscent);
+
+// // console.log(newAsscent);
+// const root = document.documentElement;
+// root.style.setProperty("--color-primary", newAsscent);
 
 ///// Scroll to Top
 
