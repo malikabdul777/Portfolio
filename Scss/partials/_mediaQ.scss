@@ -176,6 +176,9 @@
       margin-left: -3rem;
     }
   }
+  .sectionContactMe {
+    padding: 5rem !important;
+  }
 }
 @media screen and (max-width: 725px) {
   .iUseSec {
@@ -269,5 +272,16 @@
   }
   .myWorkSec {
     margin-top: -30rem !important;
+  }
+  .footer {
+    // flex-direction: column !important;
+    .madeWithTxt {
+      display: none;
+    }
+    padding-bottom: 50px;
+    margin-top: -200px;
+  }
+  .ghostText {
+    font-size: 8rem !important;
   }
 }

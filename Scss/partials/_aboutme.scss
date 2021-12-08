@@ -9,6 +9,22 @@
   justify-content: space-around;
   align-items: center;
 }
+
+a {
+  text-decoration: none;
+  color: black;
+  button {
+    padding: 1rem 2.5rem;
+    border-radius: 2rem;
+    border: 0;
+    margin-top: 2.5rem;
+    background-color: $color-primary;
+    transition: transform 0.5s ease;
+  }
+}
+button:hover {
+  transform: scale(1.05) translateY(-4px);
+}
 // .mobMyImg {
 //   display: none;
 // }
@@ -18,9 +34,12 @@
   top: 20%;
   left: 10%;
   font-size: 17rem;
-  opacity: 0.2;
-  color: #80808044;
+  // opacity: 0.2;
+  // color: #80808046;
   z-index: -1;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: #80808086;
+  color: transparent;
 }
 .cont-aboutMe {
   width: 50%;

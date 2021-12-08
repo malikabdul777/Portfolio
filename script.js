@@ -24,6 +24,7 @@ const locoScroll = new LocomotiveScroll({
   el: document.querySelector(".web-wrapper"),
   smooth: true,
   smoothMobile: true,
+  firefoxMultiplier: 150,
 });
 
 locoScroll.on("scroll", ScrollTrigger.update);
@@ -300,58 +301,55 @@ revelaHead.forEach((el) => {
 
 //////// prevent Scrolling
 
-var keys = { 37: 1, 38: 1, 39: 1, 40: 1 };
+// var keys = { 37: 1, 38: 1, 39: 1, 40: 1 };
 
-function preventDefault(e) {
-  e.preventDefault();
-}
+// function preventDefault(e) {
+//   e.preventDefault();
+// }
 
-function preventDefaultForScrollKeys(e) {
-  if (keys[e.keyCode]) {
-    preventDefault(e);
-    return false;
-  }
-}
+// function preventDefaultForScrollKeys(e) {
+//   if (keys[e.keyCode]) {
+//     preventDefault(e);
+//     return false;
+//   }
+// }
 
-var supportsPassive = false;
-try {
-  window.addEventListener(
-    "test",
-    null,
-    Object.defineProperty({}, "passive", {
-      get: function () {
-        supportsPassive = true;
-      },
-    })
-  );
-} catch (e) {}
+// var supportsPassive = false;
+// try {
+//   window.addEventListener(
+//     "test",
+//     null,
+//     Object.defineProperty({}, "passive", {
+//       get: function () {
+//         supportsPassive = true;
+//       },
+//     })
+//   );
+// } catch (e) {}
 
-var wheelOpt = supportsPassive ? { passive: false } : false;
-var wheelEvent =
-  "onwheel" in document.createElement("div") ? "wheel" : "mousewheel";
+// var wheelOpt = supportsPassive ? { passive: false } : false;
+// var wheelEvent =
+//   "onwheel" in document.createElement("div") ? "wheel" : "mousewheel";
 
-function disableScroll() {
-  window.addEventListener("DOMMouseScroll", preventDefault, false); // older FF
-  window.addEventListener(wheelEvent, preventDefault, wheelOpt); // modern desktop
-  window.addEventListener("touchmove", preventDefault, wheelOpt); // mobile
-  window.addEventListener("keydown", preventDefaultForScrollKeys, false);
-}
+// function disableScroll() {
+//   window.addEventListener("DOMMouseScroll", preventDefault, false); // older FF
+//   window.addEventListener(wheelEvent, preventDefault, wheelOpt); // modern desktop
+//   window.addEventListener("touchmove", preventDefault, wheelOpt); // mobile
+//   window.addEventListener("keydown", preventDefaultForScrollKeys, false);
+// }
 
-function enableScroll() {
-  window.removeEventListener("DOMMouseScroll", preventDefault, false);
-  window.removeEventListener(wheelEvent, preventDefault, wheelOpt);
-  window.removeEventListener("touchmove", preventDefault, wheelOpt);
-  window.removeEventListener("keydown", preventDefaultForScrollKeys, false);
-}
+// function enableScroll() {
+//   window.removeEventListener("DOMMouseScroll", preventDefault, false);
+//   window.removeEventListener(wheelEvent, preventDefault, wheelOpt);
+//   window.removeEventListener("touchmove", preventDefault, wheelOpt);
+//   window.removeEventListener("keydown", preventDefaultForScrollKeys, false);
+// }
 
 ///////////
 let t1 = gsap.timeline();
 let t2 = gsap.timeline();
 t1.addPause(2);
-// t1.play();
 
-///////////////////////////////////
-// disableScroll();
 locoScroll.stop();
 t2.from(".signature", {
   y: "-100%",
@@ -509,6 +507,20 @@ gsap.from(".gtAbout", {
   duration: 1,
   scrollTrigger: {
     trigger: ".aboutMe",
+    // markers: true,
+    start: "top 55%",
+    end: "bottom 98%",
+    scroller: ".web-wrapper",
+    scrub: 1,
+    // toggleActions: "play complete restart reverse",
+  },
+});
+gsap.from(".gtContat", {
+  x: "-100%",
+  opacity: 0,
+  duration: 1,
+  scrollTrigger: {
+    trigger: ".sectionContactMe",
     // markers: true,
     start: "top 55%",
     end: "bottom 98%",
@@ -881,6 +893,25 @@ tilesTl.from(
 //   },
 //   0.5
 // );
+
+const email = document.querySelector(".email");
+const copyEmailTxt = document.querySelector(".copyEmailTxt");
+email.addEventListener("click", () => {
+  navigator.clipboard.writeText("contact@abdulmalikshaik.com");
+  copyEmailTxt.textContent = "Copied!";
+  setTimeout(() => {
+    copyEmailTxt.textContent = "Click to Copy!";
+  }, 1500);
+});
+const date = new Date();
+const year = date.getFullYear();
+// console.log(year);
+const copyRight = document.querySelector(".copyRight");
+const copyTxt = copyRight.textContent;
+copyRight.textContent = `${copyTxt} ${year}`;
+// copyEmailTxt.addEventListener("mouseleave", () => {
+//   copyEmailTxt.textContent = "Click to Copy!";
+// });
 ///locomotive scroll
 
 // each time the window updates, we should refresh ScrollTrigger and then update LocomotiveScroll.

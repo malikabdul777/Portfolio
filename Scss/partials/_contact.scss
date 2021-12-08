@@ -1,0 +1,66 @@
+.sectionContactMe {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 10rem 40rem;
+  max-height: 80vh;
+  min-height: 79vh;
+  margin-top: -15rem;
+  .gtContat {
+    top: 0;
+  }
+  .infiScrollCont-cont {
+    width: 200px;
+  }
+  .textContContact {
+    h2 {
+      font-size: 4rem;
+      margin: 3rem 1rem 3rem 0;
+      color: $color-primary;
+    }
+  }
+}
+.email {
+  overflow: hidden;
+  margin-top: 4rem;
+  width: 35rem;
+  height: 7rem;
+  border: 1px solid white;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: relative;
+  .logoMailC {
+    @include flexCenter(row);
+    border-right: 1px solid white;
+    padding: 1rem 1.8rem;
+    .mailLogo {
+      // margin: 1rem 2rem;
+      height: 25px;
+      color: white;
+      filter: brightness(0) invert(1);
+    }
+  }
+  .coverMail {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: $color-primary;
+    width: 100%;
+    height: 100%;
+    opacity: 0.9;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+    @include flexCenter(row);
+    .copyEmailTxt {
+      color: rgb(0, 0, 0);
+      opacity: 1 !important;
+    }
+  }
+}
+.email:hover .coverMail {
+  transform: translateY(0%);
+  // transform-origin: bottom;
+}

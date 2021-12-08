@@ -1,0 +1,21 @@
+.footer {
+  // padding: 1rem 4rem 4rem 4rem;
+  // margin: 1rem;
+  max-height: 20vh;
+  min-height: 19vh;
+  margin-top: -4rem;
+  width: 100vw;
+  h2 {
+    font-size: 2rem;
+  }
+  @include flexCenter(row);
+  justify-content: space-around;
+  ul {
+    display: flex;
+    list-style: square;
+    margin-top: 1rem;
+    li {
+      margin: 2rem;
+    }
+  }
+}
