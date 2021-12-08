@@ -965,6 +965,7 @@ const email = document.querySelector(".email");
 const copyEmailTxt = document.querySelector(".copyEmailTxt");
 email.addEventListener("click", () => {
   navigator.clipboard.writeText("contact@abdulmalikshaik.com");
+
   copyEmailTxt.textContent = "Copied!";
   setTimeout(() => {
     copyEmailTxt.textContent = "Click to Copy!";
