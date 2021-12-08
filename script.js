@@ -217,7 +217,6 @@ window.mobileAndTabletCheck = function () {
 };
 
 //////// page Reload Local Storage
-
 let prevTimeStamp = null;
 let currTimeStamp = null;
 
@@ -268,7 +267,6 @@ window.onresize = function (e) {
 //     location.reload();
 //   }, 1500);
 // };
-
 let mobForCursor = window.matchMedia("(max-width: 450px)");
 let myImgNodeList = contImg.attributes;
 // console.log(mobForCursor.matches);
@@ -654,9 +652,7 @@ gsap.from(".gtIUse", {
     scrub: 1,
   },
 });
-let mob2 = window.matchMedia("(max-width: 900px)");
-
-if (mob2.matches) {
+if (mob.matches) {
   const expTl = gsap.timeline({
     scrollTrigger: {
       trigger: ".ipadSeoC",
@@ -708,8 +704,7 @@ if (mob2.matches) {
     "+=0.4"
   );
 }
-
-if (!mob2.matches) {
+if (!mob.matches) {
   const TrackOutImg = document.querySelector(".TrackOutImg");
   TrackOutImg.addEventListener("mouseover", () => {
     gsap.to(TrackOutImg, {
