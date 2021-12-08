@@ -305,14 +305,7 @@ body {
     margin-top: -30rem !important;
   }
 
-  .sectionContactMe {
-    max-height: 30vh;
-    min-height: 29vh;
-  }
-
   .footer {
-    max-height: 10vh;
-    min-height: 9vh;
     padding-bottom: 50px;
     margin-top: -200px;
   }
@@ -1074,8 +1067,8 @@ button:hover {
   justify-content: flex-start;
   align-items: center;
   padding: 10rem 40rem;
-  max-height: 80vh;
-  min-height: 79vh;
+  max-height: 80vh !important;
+  min-height: 79vh !important;
   margin-top: -15rem;
 }
 .sectionContactMe .gtContat {
@@ -1139,8 +1132,8 @@ button:hover {
 }
 
 .footer {
-  max-height: 20vh;
-  min-height: 19vh;
+  max-height: 20vh !important;
+  min-height: 19vh !important;
   margin-top: -4rem;
   width: 100vw;
   display: flex;
