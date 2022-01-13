@@ -84,6 +84,7 @@ let asscentColorsArray = [
   "#F27B70",
   // "#8a2be2",
 ];
+
 // let prevAsscentColor =
 //   localStorage.getItem("asscentColor") === null
 //     ? null
