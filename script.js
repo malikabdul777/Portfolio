@@ -698,7 +698,7 @@ tilesTl.from(
 const email = document.querySelector(".email");
 const copyEmailTxt = document.querySelector(".copyEmailTxt");
 email.addEventListener("click", () => {
-  navigator.clipboard.writeText("contact@abdulmalikshaik.com");
+  navigator.clipboard.writeText("abdulmalikshaik771@gmail.com");
 
   copyEmailTxt.textContent = "Copied!";
   setTimeout(() => {
