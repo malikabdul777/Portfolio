@@ -1,0 +1,106 @@
+/* Content layout additions; the original animation styles remain in style.css. */
+.firstLayer .signatureDesig { text-align: center; padding-inline: 2rem; }
+.mainHead .boxHead { width: min(100%, 105rem); }
+.mainHeadEl { line-height: 1.3; }
+.mainHeadEl .revelaHead { font-size: clamp(3.6rem, 5.5vw, 7rem); }
+.mainHeadEl .spanDiff { font-size: inherit; transform: none; }
+.introp { margin-top: 3rem; line-height: 1.8; color: #b0b0b0; letter-spacing: .04em; }
+.freelanceTit { margin-left: 0; letter-spacing: .08em; color: var(--color-primary); }
+.abtMeP { text-align: left; }
+.abtMeP + .abtMeP { margin-top: 1.8rem; }
+.infinScrollHead { white-space: nowrap; }
+.portfolio-button {
+  display: inline-block; padding: 1.2rem 2.5rem; border-radius: 2rem;
+  background: var(--color-primary); color: #000; font-size: 1.4rem;
+  margin-top: 2rem; transition: transform .3s ease;
+}
+.portfolio-button:hover { transform: translateY(-4px); }
+a:focus-visible { outline: 2px solid var(--color-primary); outline-offset: 6px; }
+.expertise-intro { max-width: 65rem; text-align: center; margin-top: 3rem; color: #b0b0b0; line-height: 1.8; }
+.expertise-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3rem; width: 100%; max-width: 110rem; margin-top: 5rem; }
+.expertise-grid article { border-top: 1px solid #383838; padding-top: 2rem; }
+.expertise-number { font-size: 1.2rem; color: var(--color-primary); letter-spacing: .12em; }
+.expertise-grid h3 { margin: 1.5rem 0; font-size: 2rem; font-weight: 500; }
+.expertise-grid p { color: #b0b0b0; font-size: 1.4rem; line-height: 1.9; }
+.development-stack { color: var(--color-primary); text-align: center; font-size: 1.4rem; line-height: 2; margin-top: 4rem; }
+.iUseSec { padding-top: 6rem; padding-bottom: 8rem; min-height: auto; }
+.techWrapper { margin-top: 6rem; }
+.project-kicker { font-size: 1.1rem; letter-spacing: .16em; color: var(--color-primary); margin-bottom: 1.5rem; line-height: 1.8; }
+.myWorkSec .myWorkParaC p { text-align: left !important; line-height: 1.9; }
+.myWorkSec .myWorkTitleC h1 { line-height: 1.4; }
+.myWorkSec .infiScrollCont-work { width: 35rem; }
+.myWorkSec .project-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: center;
+  gap: 6rem;
+  margin: 0 0 14rem;
+  width: 100%;
+}
+.myWorkSec .project-row .workImgsC {
+  min-width: 0;
+  padding: 0;
+  margin: 0;
+  perspective: 1000px;
+}
+.myWorkSec .project-row .project-copy { min-width: 0; }
+.myWorkSec .workContMain { margin-bottom: 0; }
+.myWorkSec { padding-bottom: 4rem; }
+.myWorkSec > .project-row:last-child { margin-bottom: 0; }
+.myWorkSec .workImgsC img {
+  width: min(100%, 60rem);
+  aspect-ratio: 3 / 2;
+  object-fit: contain;
+  background: #f5f6fa;
+  border-radius: 1rem;
+  display: block;
+}
+.social-links { display: flex; gap: 3rem; justify-content: center; margin-top: 3rem; }
+.social-links a { color: var(--color-primary); font-size: 1.5rem; }
+.sectionContactMe { margin-top: 0 !important; max-height: none !important; min-height: 80vh !important; padding-top: 4rem; }
+@media (max-width: 900px) {
+  .mainHead .boxHead { padding-inline: 4rem; }
+  .expertise-grid { gap: 2rem; }
+  .iUseSec { padding-inline: 5rem; }
+  .myWorkSec { padding: 6rem 5rem 4rem; }
+  .portfolio-button { margin-bottom: 2rem; }
+  .myWorkSec .project-row { grid-template-columns: minmax(0, 1fr); gap: 4rem; margin-bottom: 10rem; }
+  .myWorkSec .project-row-reverse .project-copy { grid-row: 1; }
+  .myWorkSec .project-row img { margin: 0; }
+}
+@media (max-width: 600px) {
+  .hero-whole-wrapper { min-height: 0; margin-left: 0; }
+  .Hero-wrapper { padding: 16px 24px; }
+  .nav-bar { height: 64px; padding: 0; }
+  .logo { height: 40px; margin-top: 0; }
+  .mainHead { height: auto; min-height: 0; margin-top: 0; padding: 40px 0 140px; }
+  .mainHead .boxHead { margin-top: 0; padding: 0 24px; }
+  .textCircle { width: 100px; height: 100px; min-height: 0; max-height: none; bottom: 16px; right: 16px; }
+  .mainHeadEl { font-size: clamp(28px, 7.2vw, 36px); line-height: 1.2; }
+  .mainHeadEl .revelaHead { font-size: inherit; letter-spacing: .01em; }
+  .freelanceTit { font-size: 12px; letter-spacing: .02em; }
+  .introp { font-size: 14px; }
+  .hero-perspective { display: none; }
+  .aboutMe .abtMeP + .abtMeP { display: none; }
+  .expertise-grid { grid-template-columns: 1fr; }
+  .expertise-grid p { font-size: 1.8rem; }
+  .expertise-grid h3 { font-size: 2.4rem; }
+  .expertise-intro, .development-stack { font-size: 1.8rem; }
+  .iUseSec .infiScrollCont-iUse { max-width: 100%; }
+  .techWrapper { height: auto; margin-top: 3rem; margin-bottom: 4rem; }
+  .myWorkSec { margin-top: 0 !important; }
+  .project-kicker { font-size: 1.4rem; }
+  .myWorkSec .workContMain { margin-bottom: 4rem; }
+  .portfolio-button, .social-links a { font-size: 1.8rem; }
+  .textContContact h2 { line-height: 1.5; }
+  .firstLayer .signatureDesig { font-size: 2rem; }
+  .sectionContactMe { min-height: 0 !important; padding: 32px 24px !important; }
+  .textContContact h2 { font-size: 26px; }
+  .textContContact p { font-size: 14px; line-height: 1.8; }
+  .email { width: 100%; max-width: 360px; height: 56px; }
+  .mailTxt p { font-size: 12px; }
+  .social-links a { font-size: 14px; }
+  .footer { min-height: 0 !important; max-height: none !important; width: 100%; margin-top: 0; padding: 24px; border-top: 1px solid #222; justify-content: center; }
+  .footer .madeWithTxt { display: none; }
+  .copyRight { font-size: 12px; }
+}

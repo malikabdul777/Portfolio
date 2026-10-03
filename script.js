@@ -79,11 +79,14 @@ ScrollTrigger.create({
 let asscentColorsArray = [
   "#e89f4c",
   "#66fcf1",
-  // "#F2DB14",
-  "#F7E018",
+  "#B7A4FF",
   "#F27B70",
   // "#8a2be2",
 ];
+
+if (localStorage.getItem("asscentColor")?.toUpperCase() === "#F7E018") {
+  localStorage.setItem("asscentColor", "#B7A4FF");
+}
 
 if (localStorage.getItem("asscentColor") === null) {
   let randAsscent =
@@ -435,172 +438,43 @@ gsap.from(".gtIUse", {
 
 let mob = window.matchMedia("(max-width: 900px)");
 
-// Animations for screen width less than 900px
-
-if (mob.matches) {
-  const expTl = gsap.timeline({
+// Shared project reveal and hover treatment, mirrored for alternating rows.
+document.querySelectorAll(".project-row").forEach((row) => {
+  const image = row.querySelector(".project-image");
+  const copy = row.querySelector(".project-copy");
+  const direction = row.classList.contains("project-row-reverse") ? 1 : -1;
+  const restingAngle = mob.matches ? 0 : direction * 20;
+  const projectTl = gsap.timeline({
     scrollTrigger: {
-      trigger: ".ipadSeoC",
-      // markers: true,
-      start: "top 100%",
-      end: "bottom 90%",
+      trigger: row,
+      start: "top 90%",
+      end: "top 35%",
       scroller: ".web-wrapper",
       scrub: 1,
     },
   });
-  expTl.from(".nameTxtC1", {
-    x: "-100%",
-    opacity: 0,
-  });
-  expTl.from(
-    ".Seo1Img",
-    {
-      y: "100%",
-      duration: 1,
-      opacity: 0,
-    },
-    "+=0.4"
-  );
-  const expTl2 = gsap.timeline({
-    scrollTrigger: {
-      trigger: ".TrackOutC",
-      // markers: true,
-      start: "top 100%",
-      end: "bottom 90%",
-      scroller: ".web-wrapper",
-      scrub: 1,
-    },
-  });
-  expTl2.from(".nameTxtC2", {
-    x: "100%",
-    opacity: 0,
-  });
-  expTl2.from(
-    ".TrackOutImg",
-    {
-      y: "100%",
-      duration: 1,
-      opacity: 0,
-    },
-    "+=0.4"
-  );
-}
+  projectTl.fromTo(image,
+    { xPercent: mob.matches ? 0 : -direction * 15, yPercent: mob.matches ? 15 : 0,
+      rotateY: 0, opacity: 0, scale: 0.9 },
+    { xPercent: 0, yPercent: 0, rotateY: restingAngle, opacity: 1, scale: 1,
+      duration: 1, ease: "power3.out" }, 0);
+  projectTl.fromTo(copy,
+    { xPercent: mob.matches ? 0 : direction * 10, y: mob.matches ? 24 : 0, opacity: 0 },
+    { xPercent: 0, y: 0, opacity: 1, duration: 1, ease: "power3.out" }, 0);
 
-// Animations for screen width greater than 900px
+  if (!mob.matches) {
+    image.addEventListener("mouseenter", () => gsap.to(image, { rotateY: 0, duration: 0.4 }));
+    image.addEventListener("mouseleave", () => gsap.to(image, { rotateY: restingAngle, duration: 0.4 }));
+  }
+});
 
 if (!mob.matches) {
-  const TrackOutImg = document.querySelector(".TrackOutImg");
-  TrackOutImg.addEventListener("mouseover", () => {
-    gsap.to(TrackOutImg, {
-      rotateY: "0deg",
-    });
-  });
-  TrackOutImg.addEventListener("mouseleave", () => {
-    gsap.to(TrackOutImg, {
-      rotateY: "35deg",
-    });
-  });
-  const Seo1Img = document.querySelector(".Seo1Img");
-  Seo1Img.addEventListener("mouseover", () => {
-    gsap.to(Seo1Img, {
-      rotateY: "0deg",
-    });
-  });
-  Seo1Img.addEventListener("mouseleave", () => {
-    gsap.to(Seo1Img, {
-      rotateY: "-35deg",
-    });
-  });
-  const expTl = gsap.timeline({
-    scrollTrigger: {
-      trigger: ".ipadSeoC",
-      // markers: true,
-      start: "top 60%",
-      end: "bottom 90%",
-      scroller: ".web-wrapper",
-      scrub: 1,
-    },
-  });
-  expTl.fromTo(
-    ".Seo1Img",
-    {
-      xPercent: -40,
-      scale: 1,
-    },
-    {
-      rotateY: "0deg",
-      scale: 0.8,
-      duration: 0.4,
-    }
-  );
-  expTl.to(".Seo1Img", {
-    x: "45%",
-    duration: 0.4,
-  });
-  expTl.to(".Seo1Img", {
-    rotateY: "-35deg",
-    duration: 0.4,
-  });
-  expTl.fromTo(
-    ".nameTxtC1",
-    {
-      x: "-100%",
-      opacity: 0,
-    },
-    {
-      x: "10%",
-      opacity: 1,
-    }
-  );
-
-  const expTl2 = gsap.timeline({
-    scrollTrigger: {
-      trigger: ".TrackOutC",
-      // markers: true,
-      start: "top 80%",
-      end: "bottom 110%",
-      scroller: ".web-wrapper",
-      scrub: 1,
-    },
-  });
-  expTl2.fromTo(
-    ".TrackOutImg",
-    {
-      xPercent: 30,
-      scale: 1,
-    },
-    {
-      rotateY: "0deg",
-      scale: 0.8,
-      duration: 0.4,
-    }
-  );
-  expTl2.to(".TrackOutImg", {
-    x: "-40%",
-    duration: 0.4,
-  });
-  expTl2.to(".TrackOutImg", {
-    rotateY: "33deg",
-    duration: 0.4,
-  });
-  expTl2.fromTo(
-    ".nameTxtC2",
-    {
-      x: "100%",
-      opacity: 0,
-    },
-    {
-      x: "-10%",
-      opacity: 1,
-    }
-  );
   gsap.to(".cont-aboutMe", {
     y: "38%",
     duration: 0.1,
     ease: "power3.out",
     scrollTrigger: {
       trigger: ".iUseSec",
-      // markers: true,
       start: "top 85%",
       end: "bottom 98%",
       scroller: ".web-wrapper",
