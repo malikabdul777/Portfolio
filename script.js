@@ -1,3 +1,5 @@
+document.documentElement.classList.add("intro-loading");
+
 const cursorCircle = document.querySelector(".cursor-circle");
 const cursor = document.querySelector(".cursor");
 const cursorClick = document.querySelector(".cursor-click");
@@ -19,57 +21,22 @@ const iconMainCont = document.querySelectorAll(".iconMainCont");
 
 gsap.registerPlugin(ScrollTrigger);
 
-// Locomotive scroll
-const locoScroll = new LocomotiveScroll({
-  el: document.querySelector(".web-wrapper"),
-  smooth: true,
-  smoothMobile: true,
-  firefoxMultiplier: 150,
-});
-
-locoScroll.on("scroll", ScrollTrigger.update);
-
-ScrollTrigger.scrollerProxy(".web-wrapper", {
-  scrollTop(value) {
-    return arguments.length
-      ? locoScroll.scrollTo(value, 0, 0)
-      : locoScroll.scroll.instance.scroll.y;
-  }, // we don't have to define a scrollLeft because we're only scrolling vertically.
-  getBoundingClientRect() {
-    return {
-      top: 0,
-      left: 0,
-      width: window.innerWidth,
-      height: window.innerHeight,
-    };
-  },
-
-  pinType: document.querySelector(".web-wrapper").style.transform
-    ? "transform"
-    : "fixed",
-});
-
-//// skew
-
-let proxy = { skew: 0 },
-  skewSetter = gsap.quickSetter(".skewElem", "skewY", "deg"), // fast
-  clamp = gsap.utils.clamp(-3, 3);
+// ScrollTrigger follows native browser scrolling.
+const scrollSkew = { skew: 0 };
+const setScrollSkew = gsap.quickSetter(".skewElem", "skewY", "deg");
+const clampScrollSkew = gsap.utils.clamp(-0.8, 0.8);
 
 ScrollTrigger.create({
-  scroller: ".web-wrapper",
-  trigger: "#root",
-
   onUpdate: (self) => {
-    let skew = clamp(self.getVelocity() / -300);
-
-    if (Math.abs(skew) > Math.abs(proxy.skew)) {
-      proxy.skew = skew;
-      gsap.to(proxy, {
+    const skew = clampScrollSkew(self.getVelocity() / -1500);
+    if (Math.abs(skew) > Math.abs(scrollSkew.skew)) {
+      scrollSkew.skew = skew;
+      gsap.to(scrollSkew, {
         skew: 0,
         duration: 0.4,
-        ease: "power3",
+        ease: "power3.out",
         overwrite: true,
-        onUpdate: () => skewSetter(proxy.skew),
+        onUpdate: () => setScrollSkew(scrollSkew.skew),
       });
     }
   },
@@ -184,48 +151,11 @@ window.mobileAndTabletCheck = function () {
   return check;
 };
 
-//////// page Reload Local Storage
-let prevTimeStamp = null;
-let currTimeStamp = null;
-
-let shouldReloadSmall = null;
-if (localStorage.getItem("shouldReloadSmall") == null) {
-  if (window.innerWidth > 450) {
-    localStorage.setItem("shouldReloadSmall", true);
-  }
-}
-
-let shouldReloadLarge = null;
-if (localStorage.getItem("shouldReloadLarge") == null) {
-  if (window.innerWidth < 450) {
-    localStorage.setItem("shouldReloadLarge", true);
-  }
-}
-
-window.onresize = function (e) {
-  prevTimeStamp = e.timeStamp;
-  const timer = setInterval(() => {
-    currTimeStamp = e.timeStamp;
-    if (prevTimeStamp == currTimeStamp) {
-      if (
-        e.srcElement.innerWidth > 451 &&
-        JSON.parse(localStorage.getItem("shouldReloadLarge"))
-      ) {
-        localStorage.setItem("shouldReloadSmall", true);
-        localStorage.setItem("shouldReloadLarge", false);
-        location.reload();
-      }
-      if (
-        e.srcElement.innerWidth <= 450 &&
-        JSON.parse(localStorage.getItem("shouldReloadSmall"))
-      ) {
-        localStorage.setItem("shouldReloadSmall", false);
-        localStorage.setItem("shouldReloadLarge", true);
-        location.reload();
-      }
-    }
-  }, 500);
-};
+// Resize handling: ScrollTrigger already debounces viewport updates.
+// Rebuild only when the cursor or project-animation layout changes.
+["(max-width: 450px)", "(max-width: 900px)"].forEach((query) => {
+  window.matchMedia(query).addEventListener("change", () => location.reload());
+});
 
 let mobForCursor = window.matchMedia("(max-width: 450px)");
 
@@ -238,12 +168,12 @@ if (mobileAndTabletCheck() || mobForCursor.matches) {
 }
 ////Cust Cursor
 document.addEventListener("mousemove", (e) => {
-  cursorCircle.setAttribute("style", `top: ${e.pageY}px; left: ${e.pageX}px`);
-  cursorClick.setAttribute("style", `top: ${e.pageY}px; left: ${e.pageX}px`);
+  cursorCircle.setAttribute("style", `top: ${e.clientY}px; left: ${e.clientX}px`);
+  cursorClick.setAttribute("style", `top: ${e.clientY}px; left: ${e.clientX}px`);
 
   cursor.setAttribute(
     "style",
-    `top: ${e.pageY + 8.8}px; left: ${e.pageX + 8.8}px`
+    `top: ${e.clientY + 8.8}px; left: ${e.clientX + 8.8}px`
   );
 });
 
@@ -296,7 +226,6 @@ let t1 = gsap.timeline();
 let t2 = gsap.timeline();
 t1.addPause(2);
 
-locoScroll.stop();
 t2.from(".signature", {
   y: "-100%",
   opacity: 0,
@@ -316,7 +245,8 @@ t2.to(".firstLayer", {
 });
 
 t2.eventCallback("onComplete", function () {
-  locoScroll.start();
+  document.documentElement.classList.remove("intro-loading");
+  ScrollTrigger.refresh();
   t1.play();
 });
 
@@ -376,7 +306,6 @@ gsap.from(".gtAbout", {
     // markers: true,
     start: "top 55%",
     end: "bottom 98%",
-    scroller: ".web-wrapper",
     scrub: 1,
   },
 });
@@ -389,7 +318,6 @@ gsap.from(".gtContat", {
     // markers: true,
     start: "top 55%",
     end: "bottom 98%",
-    scroller: ".web-wrapper",
     scrub: 1,
   },
 });
@@ -402,7 +330,6 @@ gsap.from(".Contimg1", {
     // markers: true,
     start: "top 55%",
     end: "bottom 98%",
-    scroller: ".web-wrapper",
     scrub: 1,
   },
 });
@@ -416,7 +343,6 @@ gsap.to(".boxHead", {
     // markers: true,
     start: "top 85%",
     end: "bottom 98%",
-    scroller: ".web-wrapper",
     scrub: 1,
   },
 });
@@ -429,7 +355,6 @@ gsap.from(".gtIUse", {
     // markers: true,
     start: "top 55%",
     end: "bottom 98%",
-    scroller: ".web-wrapper",
     scrub: 1,
   },
 });
@@ -449,7 +374,6 @@ document.querySelectorAll(".project-row").forEach((row) => {
       trigger: row,
       start: "top 90%",
       end: "top 35%",
-      scroller: ".web-wrapper",
       scrub: 1,
     },
   });
@@ -477,7 +401,6 @@ if (!mob.matches) {
       trigger: ".iUseSec",
       start: "top 85%",
       end: "bottom 98%",
-      scroller: ".web-wrapper",
       scrub: 1,
     },
   });
@@ -491,7 +414,6 @@ let tilesTl = gsap.timeline({
     // markers: true,
     start: "top 20%",
     end: "bottom 98%",
-    scroller: ".web-wrapper",
     scrub: 1,
   },
 });
@@ -587,10 +509,6 @@ const copyRight = document.querySelector(".copyRight");
 const copyTxt = copyRight.textContent;
 copyRight.textContent = `${copyTxt} ${year}`;
 
-///locomotive scroll
-
-// each time the window updates, we should refresh ScrollTrigger and then update LocomotiveScroll.
-ScrollTrigger.addEventListener("refresh", () => locoScroll.update());
-
-// after everything is set up, refresh() ScrollTrigger and update LocomotiveScroll because padding may have been added for pinning, etc.
+// Fonts can change section heights after the first layout pass.
+document.fonts.ready.then(() => ScrollTrigger.refresh());
 ScrollTrigger.refresh();

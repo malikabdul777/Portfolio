@@ -104,3 +104,7 @@ a:focus-visible { outline: 2px solid var(--color-primary); outline-offset: 6px; 
   .footer .madeWithTxt { display: none; }
   .copyRight { font-size: 12px; }
 }
+html.intro-loading,
+html.intro-loading body {
+  overflow: hidden;
+}
